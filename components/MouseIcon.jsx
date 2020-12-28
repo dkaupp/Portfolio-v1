@@ -70,14 +70,14 @@ const arrowVariants = {
     opacity: 0,
     transition: {
       duration: 0.001,
-      yoyo: Infinity,
     },
   },
   visible: {
     opacity: 1,
     y: 2,
     transition: {
-      yoyo: Infinity,
+      repeat: Infinity,
+      repeatType: "reverse",
       duration: 0.8,
       ease: "easeIn",
     },

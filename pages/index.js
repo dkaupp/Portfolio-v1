@@ -14,7 +14,7 @@ const index = () => {
   return (
     <>
       <HeroSection />
-      <HeadSection onIsTrue={handleIsTrue} isTrue={isTrue} />
+      {/* <HeadSection onIsTrue={handleIsTrue} isTrue={isTrue} /> */}
       <ProjectsSection onIsTrue={handleIsTrue} isTrue={isTrue} />
       <AboutSection />
       <ContactSection />

@@ -1,6 +1,6 @@
-import React, { useRef, useLayoutEffect , useState} from "react";
+import { useRef, useLayoutEffect, useState } from "react";
 
-const  useRefScrollProgress = () => {
+const useRefScrollProgress = () => {
   const ref = useRef();
   const [start, setStart] = useState(null);
   const [end, setEnd] = useState(null);
@@ -15,7 +15,6 @@ const  useRefScrollProgress = () => {
     setEnd((offsetTop + rect.height) / document.body.clientHeight);
   });
   return { ref, start, end };
-}
-
+};
 
 export default useRefScrollProgress;
