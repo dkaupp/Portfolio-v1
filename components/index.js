@@ -1,0 +1,14 @@
+export { default as AboutSection } from "./AboutSection.jsx";
+export { default as Badge } from "./Badge";
+export { default as ContactSection } from "./AboutSection";
+export { default as Footer } from "./Footer";
+export { default as Head } from "./Head";
+export { default as HeadSection } from "./HeroMain";
+export { default as HeroMain } from "./HeroMain";
+export { default as HeroSection } from "./HeroSection";
+export { default as MenuButton } from "./MenuButton";
+export { default as MouseIcon } from "./MouseIcon";
+export { default as NavBar } from "./NavBar";
+export { default as Project } from "./Project.jsx";
+export { default as ProjectDescription } from "./ProjectDescription.jsx";
+export { default as ProjectsSection } from "./ProjectsSection.jsx";

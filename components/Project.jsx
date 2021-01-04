@@ -8,5 +8,6 @@ const Project = ({ source }) => {
 const StyledProject = styled.img`
   max-width: 80rem;
   width: 100%;
+  padding-top: 2rem;
 `;
 export default Project;

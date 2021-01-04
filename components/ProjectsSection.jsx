@@ -17,7 +17,7 @@ const ProjectsSection = () => {
     },
     {
       id: 2,
-      heading: "Store App",
+      heading: "Pass It On",
       description:
         "Bug logger app , with role base login . The front end was created using React/Redux, and back end with Node , Express and Mongoose.",
       badges: ["mongodb", "react", "redux", "nodejs"],
@@ -60,7 +60,7 @@ const ProjectsSection = () => {
             description={projects[0].description}
             badges={projects[0].badges}
           />
-          <Project source="../static/project1-svg.svg" />
+          <Project source="../static/project1.png" />
         </ProjectContainer>
         <ProjectContainer
           ref={ref2}
@@ -68,7 +68,7 @@ const ProjectsSection = () => {
           initial="hidden"
           animate={inView2 ? "visible" : "hidden"}
         >
-          <Project source="../static/project2-svg.svg" />
+          <Project source="../static/project2-svg.png" />
           <ProjectDescription
             direction={"left"}
             heading={projects[1].heading}
