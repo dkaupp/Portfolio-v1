@@ -1,6 +1,6 @@
-export { default as AboutSection } from "./AboutSection.jsx";
+export { default as AboutSection } from "./AboutSection";
 export { default as Badge } from "./Badge";
-export { default as ContactSection } from "./AboutSection";
+export { default as ContactSection } from "./ContactSection";
 export { default as Footer } from "./Footer";
 export { default as Head } from "./Head";
 export { default as HeadSection } from "./HeroMain";

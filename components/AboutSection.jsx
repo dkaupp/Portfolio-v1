@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
@@ -15,9 +15,10 @@ const AboutSection = () => {
   return (
     <AboutSectionContainer ref={ref}>
       <AboutContainer
-        variants={aboutSectionVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
+        // variants={aboutSectionVariants}
+        // initial="hidden"
+        // animate={inView ? "visible" : "hidden"}
+        inView={inView}
       >
         <Container>
           <AboutTextContainer>
@@ -54,17 +55,28 @@ const AboutSectionContainer = styled.section`
   background-color: black;
   padding: 0 3rem 0 3rem;
   height: 100vh;
+  overflow: hidden;
 `;
 const AboutImg = styled(motion.img)`
   max-width: 128rem;
   width: 100%;
-  position: absolute;
 `;
 
 const AboutContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  will-change: transform;
+  transform: translateY(80rem);
+  transition: all 1s ease-out;
+
+  ${(props) =>
+    props.inView &&
+    css`
+      transform: translateY(0rem);
+      opacity: 1;
+    `}
 `;
 
 const AboutTextContainer = styled(motion.div)`
@@ -73,6 +85,7 @@ const AboutTextContainer = styled(motion.div)`
   margin-left: 3rem;
   width: 100%;
   margin-top: 3rem;
+  position: absolute;
 `;
 
 const Container = styled.div`
@@ -96,20 +109,20 @@ const AboutSectionPara = styled(Para)`
   font-size: 2rem;
 `;
 
-const aboutSectionVariants = {
-  hidden: {
-    y: "80rem",
-    opacity: 0,
-  },
-  visible: {
-    y: "25rem",
-    opacity: 1,
-    transition: {
-      duration: 1,
-      ease: "easeOut",
-    },
-  },
-};
+// const aboutSectionVariants = {
+//   hidden: {
+//     y: "80rem",
+//     opacity: 0,
+//   },
+//   visible: {
+//     y: "25rem",
+//     opacity: 1,
+//     transition: {
+//       duration: 1,
+//       ease: "easeOut",
+//     },
+//   },
+// };
 
 const StyledListContainer = styled.div`
   display: flex;

@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import NavBar from "./NavBar";
-import MouseIcon from "./MouseIcon";
+import { NavBar, MouseIcon } from "./";
 
 const HeroSection = () => {
   return (

@@ -68,7 +68,7 @@ const ProjectsSection = () => {
           initial="hidden"
           animate={inView2 ? "visible" : "hidden"}
         >
-          <Project source="../static/project2-svg.png" />
+          <Project source="../static/project2.png" />
           <ProjectDescription
             direction={"left"}
             heading={projects[1].heading}
@@ -95,7 +95,7 @@ const ProjectsSection = () => {
 };
 
 const ProjectsSectionContainer = styled(motion.section)`
-  padding: 6rem 3rem;
+  padding: 6rem 3rem 0 3rem;
   background-color: black;
   overflow: hidden;
   display: flex;

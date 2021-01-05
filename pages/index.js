@@ -1,10 +1,12 @@
 import { useState } from "react";
 
-import HeroSection from "../components/HeroSection";
-import HeadSection from "../components/HeadSection";
-import ProjectsSection from "../components/ProjectsSection";
-import AboutSection from "../components/AboutSection.jsx";
-import ContactSection from "../components/ContactSection";
+import {
+  HeroSection,
+  ProjectsSection,
+  AboutSection,
+  ContactSection,
+  Footer,
+} from "../components";
 
 const index = () => {
   const [isTrue, setIsTrue] = useState(false);
@@ -17,7 +19,8 @@ const index = () => {
       {/* <HeadSection onIsTrue={handleIsTrue} isTrue={isTrue} /> */}
       <ProjectsSection onIsTrue={handleIsTrue} isTrue={isTrue} />
       <AboutSection />
-      <ContactSection />
+      {/* <ContactSection />
+      <Footer /> */}
     </>
   );
 };
