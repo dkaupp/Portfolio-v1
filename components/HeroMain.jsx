@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
-import Head from "./Head.jsx";
+import Head2 from "./Head2.js";
 
 const HeroMain = ({ visible, onIsTrue, isTrue }) => {
   useEffect(() => {
@@ -10,7 +10,7 @@ const HeroMain = ({ visible, onIsTrue, isTrue }) => {
 
   return (
     <MainContainer>
-      <Head isTrue={isTrue} />
+      <Head2 isTrue={isTrue} />
     </MainContainer>
   );
 };
@@ -18,6 +18,7 @@ const HeroMain = ({ visible, onIsTrue, isTrue }) => {
 const MainContainer = styled.div`
   width: 55rem;
   position: relative;
+  overflow: visible;
 `;
 
 export default HeroMain;

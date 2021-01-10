@@ -46,28 +46,6 @@ export default class MyDocument extends Document {
           <Main />
           <NextScript />
         </body>
-        <style global jsx>{`
-          *,
-          *::before,
-          *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: inherit;
-          }
-
-          html {
-            box-sizing: border-box;
-            font-size: 62.5%; //10px/16px = 62.5% -> 1rem = 10px
-            // scroll-behavior: smooth;
-          }
-          body {
-            font-family: "Roboto", sans-serif;
-            cursor: url("/static/cursor1.svg"), auto;
-          }
-          li {
-            cursor: url("/static/cursor1.svg"), auto;
-          }
-        `}</style>
       </Html>
     );
   }

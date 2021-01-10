@@ -68,11 +68,14 @@ const ContactSection = () => {
 const ContactSectionContainer = styled.section`
   background-color: black;
   padding: 0rem 3rem 0rem;
+  height: 100vh;
+  overflow: hidden;
 `;
 const ContactContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+  will-change: transform;
 `;
 
 const ContactImgContainer = styled.div`

@@ -5,7 +5,7 @@ import theme from "../styles/theme";
 
 const Badge = ({ name, direction }) => {
   return (
-    <BadgeContainer direction={direction} color={theme[name]}>
+    <BadgeContainer direction={direction} color={theme.colors[name]}>
       {name}
     </BadgeContainer>
   );
