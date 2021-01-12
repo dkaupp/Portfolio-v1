@@ -13,13 +13,8 @@ const AboutSection = () => {
   });
 
   return (
-    <AboutSectionContainer ref={ref}>
-      <AboutContainer
-        // variants={aboutSectionVariants}
-        // initial="hidden"
-        // animate={inView ? "visible" : "hidden"}
-        inView={inView}
-      >
+    <AboutSectionContainer ref={ref} id="about">
+      <AboutContainer inView={inView}>
         <Container>
           <AboutTextContainer>
             <AboutH2>What i do : </AboutH2>
@@ -53,9 +48,9 @@ const AboutSection = () => {
 
 const AboutSectionContainer = styled.section`
   background-color: black;
-  padding: 0 3rem 0 3rem;
+  padding: 3rem 3rem 0 3rem;
   height: 100vh;
-  overflow: hidden;
+  min-height: 900px;
 `;
 const AboutImg = styled(motion.img)`
   max-width: 128rem;
@@ -66,11 +61,18 @@ const AboutContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
   will-change: transform;
-  transform: translateY(80rem);
-  transition: all 1s ease-out;
-
+  opacity: 0;
+  transform: translateY(20rem);
+  /* transition: all 1s ease-out; */
+  ${({ value }) =>
+    value !== "contact"
+      ? css`
+          transition: all 1s ease-out;
+        `
+      : css`
+          transition: 0s;
+        `}
   ${(props) =>
     props.inView &&
     css`
@@ -108,21 +110,6 @@ const AboutSectionPara = styled(Para)`
   line-height: 1.5;
   font-size: 2rem;
 `;
-
-// const aboutSectionVariants = {
-//   hidden: {
-//     y: "80rem",
-//     opacity: 0,
-//   },
-//   visible: {
-//     y: "25rem",
-//     opacity: 1,
-//     transition: {
-//       duration: 1,
-//       ease: "easeOut",
-//     },
-//   },
-// };
 
 const StyledListContainer = styled.div`
   display: flex;

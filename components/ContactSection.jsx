@@ -13,7 +13,7 @@ const ContactSection = () => {
   );
 
   return (
-    <ContactSectionContainer>
+    <ContactSectionContainer id="contact">
       <ContactContainer
         style={{ y: scrollAnimation }}
         transition={{ ease: "easeIn" }}
@@ -69,6 +69,7 @@ const ContactSectionContainer = styled.section`
   background-color: black;
   padding: 0rem 3rem 0rem;
   height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 `;
 const ContactContainer = styled(motion.div)`

@@ -1,22 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import Link from "next/link";
+
+import { useRouter } from "next/router";
 
 import theme from "../styles/theme";
+import NavigationContext from "../context/navigation";
 
 const NavBar = () => {
+  const router = useRouter();
+
+  const { handleNavigation } = useContext(NavigationContext);
+
+  const handleClick = (value) => {
+    router.push(`#${value}`);
+    return handleNavigation(value);
+  };
+
+  console.log(router);
+
   return (
     <StyledNav>
       <StyledUl>
-        <StyledLi> About</StyledLi>
-        <StyledLi>Work</StyledLi>
-        <StyledLi>Contact</StyledLi>
+        {/* <a href="#about" replace> */}
+        <StyledLi onClick={() => handleClick("about")}>About</StyledLi>
+        {/* </a> */}
+        <Link href="#work">
+          <StyledLi onClick={() => handleNavigation("work")}>Work</StyledLi>
+        </Link>
+        <Link href="#contact">
+          <StyledLi onClick={() => handleNavigation("contact")}>
+            Contact
+          </StyledLi>
+        </Link>
       </StyledUl>
     </StyledNav>
   );
 };
 
-const StyledNav = styled(motion.div)`
+const StyledNav = styled.div`
   background-color: transparent;
   position: absolute;
   top: 0;
@@ -30,7 +52,7 @@ const StyledUl = styled.ul`
   height: 100%;
 `;
 
-const StyledLi = styled(motion.li)`
+const StyledLi = styled.li`
   font-family: inherit;
   color: white;
   font-weight: bold;
@@ -40,7 +62,7 @@ const StyledLi = styled(motion.li)`
   text-transform: uppercase;
   transition: scale 0.1s ease;
   &:hover {
-    color: ${theme.yellow};
+    color: ${theme.colors.yellow};
     transform: scale(1.1);
   }
 `;

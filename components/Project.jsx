@@ -6,7 +6,7 @@ const Project = ({ source }) => {
 };
 
 const StyledProject = styled.img`
-  max-width: 80rem;
+  max-width: 60%;
   width: 100%;
   padding-top: 2rem;
 `;

@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+const StyledMenuButton = styled(motion.div)`
+  margin-left: auto;
+  position: fixed;
+  right: 3rem;
+  top: 3vh;
+  display: none;
+
+  @media (max-width: 1200px) {
+    display: block;
+  }
+`;
+
+const Menu = styled(motion.svg)`
+  width: 5.5.ptrem;
+`;
+
 const MenuButton = () => {
+  const [isActive, setIsActive] = useState(false);
+
+  console.log(isActive);
+
   return (
-    <StyledMenuButton>
+    <StyledMenuButton onClick={() => setIsActive(!isActive)}>
       <Menu
         width="66"
         height="66"
@@ -29,8 +49,8 @@ const MenuButton = () => {
             y2="21"
             stroke="white"
             strokeWidth="2"
-            stroke-linecap="round"
-            animate={{ rotate: 45, y: 11 }}
+            strokeLinecap="round"
+            animate={isActive ? { rotate: 45, y: 13 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.3 }}
           />
           <motion.line
@@ -41,9 +61,10 @@ const MenuButton = () => {
             y2="33"
             stroke="white"
             strokeWidth="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            style={{ opacity: 0 }}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={isActive ? { opacity: 0 } : { opacity: 1 }}
+            transition={{ duration: 0.3, delay: 5 }}
           />
           <motion.line
             id="line1"
@@ -53,8 +74,8 @@ const MenuButton = () => {
             y2="45"
             stroke="white"
             strokeWidth="2"
-            stroke-linecap="round"
-            animate={{ rotate: -45, y: -13 }}
+            strokeLinecap="round"
+            animate={isActive ? { rotate: -45, y: -11 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.3 }}
           />
         </g>
@@ -63,14 +84,4 @@ const MenuButton = () => {
   );
 };
 
-const StyledMenuButton = styled(motion.div)`
-  margin-left: auto;
-  position: fixed;
-  right: 3rem;
-  top: 3vh;
-`;
-
-const Menu = styled(motion.svg)`
-  width: 6rem;
-`;
 export default MenuButton;

@@ -20,6 +20,7 @@ const HeroSection = () => {
 
 const HeroSectionContainer = styled.section`
   height: 100vh;
+  min-height: 500px;
   width: 100%;
   background-color: black;
   padding: 3rem;
@@ -39,7 +40,7 @@ const Container = styled(motion.div)`
 
 const MouseIconContainer = styled(motion.div)`
   position: absolute;
-  top: 85vh;
+  bottom: 1.5rem;
   width: 3.5rem;
 `;
 
