@@ -9,7 +9,7 @@ const HeroSection = () => {
     <HeroSectionContainer>
       <NavBar />
       <Container>
-        <StyledH1 src="../static/neon-heading.svg" />
+        <StyledH1 src="/neon-heading.svg" />
       </Container>
       <MouseIconContainer>
         <MouseIcon />

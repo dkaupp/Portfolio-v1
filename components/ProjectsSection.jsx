@@ -59,10 +59,10 @@ const ProjectsSection = () => {
             description={projects[0].description}
             badges={projects[0].badges}
           />
-          <Project source="../static/project1.png" />
+          <Project source="/project1.png" />
         </ProjectContainer1>
         <ProjectContainer2 ref={ref2} inView2={inView2} value={value}>
-          <Project source="../static/project2.png" />
+          <Project source="/project2.png" />
           <ProjectDescription
             direction={"left"}
             heading={projects[1].heading}
@@ -76,7 +76,7 @@ const ProjectsSection = () => {
             description={projects[2].description}
             badges={projects[2].badges}
           />
-          <Project source="../static/project3-svg.svg" />
+          <Project source="/project3-svg.svg" />
         </ProjectContainer3>
       </ProjectsContainer>
     </ProjectsSectionContainer>

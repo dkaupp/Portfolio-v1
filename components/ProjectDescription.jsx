@@ -96,7 +96,7 @@ const ProjectDescription = ({ heading, description, direction, badges }) => {
 const ProjectH3 = styled(Heading3)`
   color: white;
   ${mediaQueries("desktopS")`
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   `}
 `;
 const TextContainer = styled.div`

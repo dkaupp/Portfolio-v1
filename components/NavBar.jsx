@@ -2,29 +2,18 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-import { useRouter } from "next/router";
-
 import theme from "../styles/theme";
 import NavigationContext from "../context/navigation";
 
 const NavBar = () => {
-  const router = useRouter();
-
   const { handleNavigation } = useContext(NavigationContext);
-
-  const handleClick = (value) => {
-    router.push(`#${value}`);
-    return handleNavigation(value);
-  };
-
-  console.log(router);
 
   return (
     <StyledNav>
       <StyledUl>
-        {/* <a href="#about" replace> */}
-        <StyledLi onClick={() => handleClick("about")}>About</StyledLi>
-        {/* </a> */}
+        <Link href="#about">
+          <StyledLi onClick={() => handleNavigation("about")}>About</StyledLi>
+        </Link>
         <Link href="#work">
           <StyledLi onClick={() => handleNavigation("work")}>Work</StyledLi>
         </Link>

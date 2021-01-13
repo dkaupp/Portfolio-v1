@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
 import { Para } from "../styles/typography";
+import { mediaQueries } from "../styles/mediaQueries.js";
 import Badge from "./Badge";
 
 const AboutSection = () => {
@@ -39,7 +40,7 @@ const AboutSection = () => {
               <Badge name={"mongodb"} />
             </StyledListContainer>
           </AboutTextContainer>
-          <AboutImg src="../static/about-svg-final (1).svg" />
+          <AboutImg src="/about.svg" />
         </Container>
       </AboutContainer>
     </AboutSectionContainer>
@@ -64,7 +65,6 @@ const AboutContainer = styled(motion.div)`
   will-change: transform;
   opacity: 0;
   transform: translateY(20rem);
-  /* transition: all 1s ease-out; */
   ${({ value }) =>
     value !== "contact"
       ? css`
@@ -98,8 +98,12 @@ const Container = styled.div`
   width: 100%;
 `;
 const AboutH2 = styled.h2`
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 0.3rem;
+
+  ${mediaQueries("desktopS")`
+    font-size: 2.3rem;
+  `}
 `;
 const AboutH22 = styled(AboutH2)`
   margin-top: 1rem;
@@ -109,6 +113,11 @@ const AboutSectionPara = styled(Para)`
   color: white;
   line-height: 1.5;
   font-size: 2rem;
+
+  ${mediaQueries("desktopS")`
+    font-size: 1.8rem;
+    letter-spacing: 1.2px;
+  `}
 `;
 
 const StyledListContainer = styled.div`

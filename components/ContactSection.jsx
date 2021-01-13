@@ -19,7 +19,7 @@ const ContactSection = () => {
         transition={{ ease: "easeIn" }}
       >
         <ContactImgContainer>
-          <ContactImg src="../static/contact-svg-final .svg" />
+          <ContactImg src="/contact.svg" />
 
           <StyledContactForm>
             <StyledFormGroup>

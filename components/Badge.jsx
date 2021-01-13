@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 import theme from "../styles/theme";
+import { mediaQueries } from "../styles/mediaQueries.js";
 
 const Badge = ({ name, direction }) => {
   return (
@@ -28,6 +29,10 @@ const BadgeContainer = styled.div`
   text-transform: uppercase;
   margin: ${(props) =>
     !props.direction ? "1rem 1rem 1rem 0" : "1rem 0rem 1rem 1rem"};
+
+  ${mediaQueries("desktopS")`
+    font-size: 1.3rem;
+  `}
 `;
 
 export default Badge;
