@@ -105,13 +105,10 @@ const TextContainer = styled.div`
 `;
 
 const ProjectPara = styled(Para)`
-  color: white;
-  line-height: 1.5;
-  font-size: 2rem;
-
   ${mediaQueries("desktopS")`
     font-size: 1.8rem;
     letter-spacing: 1.2px;
+    line-height: 1.4;
   `}
 `;
 

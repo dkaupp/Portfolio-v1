@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { motion, useTransform, useViewportScroll } from "framer-motion";
+import { mediaQueries } from "../styles/mediaQueries.js";
 
 const ContactSection = () => {
   const { scrollYProgress } = useViewportScroll();
@@ -20,7 +21,9 @@ const ContactSection = () => {
       >
         <ContactImgContainer>
           <ContactImg src="/contact.svg" />
-
+          <ContactImgMobile src="/contact-mobile.png" />
+        </ContactImgContainer>
+        <ContactFormContainer>
           <StyledContactForm>
             <StyledFormGroup>
               <StyledInput
@@ -30,9 +33,9 @@ const ContactSection = () => {
                 required
                 autoComplete="off"
               />
-              <StyledLable htmlFor="name">
+              <StyledLabel htmlFor="name">
                 <StyledSpan>Name:</StyledSpan>
-              </StyledLable>
+              </StyledLabel>
             </StyledFormGroup>
             <StyledFormGroup>
               <StyledInput
@@ -42,9 +45,9 @@ const ContactSection = () => {
                 required
                 autoComplete="off"
               />
-              <StyledLable htmlFor="email">
+              <StyledLabel htmlFor="email">
                 <StyledSpan>Email:</StyledSpan>
-              </StyledLable>
+              </StyledLabel>
             </StyledFormGroup>
             <StyledFormGroup>
               <StyledTextArea
@@ -54,22 +57,34 @@ const ContactSection = () => {
                 name="message"
                 required
               ></StyledTextArea>
-              <StyledLable htmlFor="message">
+              <StyledLabel htmlFor="message">
                 <StyledSpan>Message:</StyledSpan>
-              </StyledLable>
+              </StyledLabel>
             </StyledFormGroup>
           </StyledContactForm>
-        </ContactImgContainer>
+        </ContactFormContainer>
       </ContactContainer>
     </ContactSectionContainer>
   );
 };
 
+const ContactFormContainer = styled.div`
+  position: absolute;
+  max-width: 34rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 25rem;
+
+  ${mediaQueries("desktopS")`
+    top: 22rem;
+  `}
+`;
+
 const ContactSectionContainer = styled.section`
   background-color: black;
-  padding: 0rem 3rem 0rem;
-  height: 100vh;
-  min-height: 100vh;
+  padding: 0rem 3rem 3rem;
   overflow: hidden;
 `;
 const ContactContainer = styled(motion.div)`
@@ -77,30 +92,43 @@ const ContactContainer = styled(motion.div)`
   justify-content: center;
   align-items: center;
   will-change: transform;
+  position: relative;
 `;
 
 const ContactImgContainer = styled.div`
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  ${mediaQueries("desktopXS")`
+     max-width : 60rem
+     `}
 `;
 
 const ContactImg = styled(motion.img)`
-  max-width: 104rem;
   width: 100%;
+
+  ${mediaQueries("desktopS")`
+    display: none;
+  `}
+`;
+
+const ContactImgMobile = styled(motion.img)`
+  max-width: 60rem;
+  width: 100%;
+  display: none;
+
+  ${mediaQueries("desktopS")`
+    display: block;
+  `}
 `;
 
 const StyledContactForm = styled(motion.form)`
   font-size: 1.8rem;
-  max-width: 34rem;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: absolute;
-  top: 25rem;
 `;
 const StyledInput = styled.input`
   font-family: inherit;
@@ -171,7 +199,7 @@ const StyledFormGroup = styled.div`
   }
 `;
 
-const StyledLable = styled.label`
+const StyledLabel = styled.label`
   color: white;
   position: absolute;
   left: 1.5rem;

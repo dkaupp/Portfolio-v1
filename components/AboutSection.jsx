@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
-import { Para } from "../styles/typography";
+import { Para, Heading3 } from "../styles/typography";
 import { mediaQueries } from "../styles/mediaQueries.js";
 import Badge from "./Badge";
 
@@ -18,13 +18,13 @@ const AboutSection = () => {
       <AboutContainer inView={inView}>
         <Container>
           <AboutTextContainer>
-            <AboutH2>What i do : </AboutH2>
+            <AboutH3>What i do : </AboutH3>
             <AboutSectionPara>
               I'm a full stack web developer . Use diferent technologies to
               create responsive, powerful and fully custom Websites /
               Applications.
             </AboutSectionPara>
-            <AboutH22>Front End:</AboutH22>
+            <AboutH32>Front End:</AboutH32>
 
             <StyledListContainer>
               <Badge name={"react"} />
@@ -33,7 +33,7 @@ const AboutSection = () => {
               <Badge name={"webflow"} />
               <Badge name={"bootstrap"} />
             </StyledListContainer>
-            <AboutH22>Back End:</AboutH22>
+            <AboutH32>Back End:</AboutH32>
             <StyledListContainer>
               <Badge name={"nodejs"} />
               <Badge name={"express"} />
@@ -49,9 +49,7 @@ const AboutSection = () => {
 
 const AboutSectionContainer = styled.section`
   background-color: black;
-  padding: 3rem 3rem 0 3rem;
-  height: 100vh;
-  min-height: 900px;
+  padding: 3rem 3rem 3rem 3rem;
 `;
 const AboutImg = styled(motion.img)`
   max-width: 128rem;
@@ -97,26 +95,22 @@ const Container = styled.div`
   max-width: 128rem;
   width: 100%;
 `;
-const AboutH2 = styled.h2`
-  font-size: 3rem;
+const AboutH3 = styled(Heading3)`
   margin-bottom: 0.3rem;
 
   ${mediaQueries("desktopS")`
     font-size: 2.3rem;
   `}
 `;
-const AboutH22 = styled(AboutH2)`
+const AboutH32 = styled(AboutH3)`
   margin-top: 1rem;
 `;
 
 const AboutSectionPara = styled(Para)`
-  color: white;
-  line-height: 1.5;
-  font-size: 2rem;
-
   ${mediaQueries("desktopS")`
     font-size: 1.8rem;
     letter-spacing: 1.2px;
+    line-height: 1.4;
   `}
 `;
 

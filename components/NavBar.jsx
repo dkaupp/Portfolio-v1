@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
+import { mediaQueries } from "../styles/mediaQueries.js";
 import theme from "../styles/theme";
 import NavigationContext from "../context/navigation";
 
