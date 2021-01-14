@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 
 import { ProjectDescription, Project } from "./";
 import NavigationContext from "../context/navigation";
+import { mediaQueries } from "../styles/mediaQueries";
 
 const projects = [
   {
@@ -60,9 +61,11 @@ const ProjectsSection = () => {
             badges={projects[0].badges}
           />
           <Project source="/project1.png" />
+          <ProjectMobile src="/project1-mobile.png" />
         </ProjectContainer1>
         <ProjectContainer2 ref={ref2} inView2={inView2} value={value}>
           <Project source="/project2.png" />
+          <ProjectMobile src="/project2-mobile.png" />
           <ProjectDescription
             direction={"left"}
             heading={projects[1].heading}
@@ -77,11 +80,24 @@ const ProjectsSection = () => {
             badges={projects[2].badges}
           />
           <Project source="/project3-svg.svg" />
+          <ProjectMobile src="/project3-mobile.png" />
         </ProjectContainer3>
       </ProjectsContainer>
     </ProjectsSectionContainer>
   );
 };
+
+const ProjectMobile = styled.img`
+  width: 100%;
+  padding-top: 2rem;
+  display: none;
+  max-width: 60rem;
+
+  /* ${mediaQueries("aboutMedia")`
+    display:block;
+    transform: tranlateX(50vh)
+  `} */
+`;
 
 const ProjectsSectionContainer = styled(motion.section)`
   padding: 6rem 3rem 0 3rem;
@@ -103,6 +119,10 @@ const ProjectContainer = styled(motion.div)`
   justify-content: center;
   opacity: 0;
   will-change: transform;
+
+  /* ${mediaQueries("aboutMedia")`
+    flex-direction: column
+  `} */
 `;
 
 const ProjectContainer1 = styled(ProjectContainer)`

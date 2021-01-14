@@ -123,16 +123,20 @@ const ContactImgMobile = styled(motion.img)`
 `;
 
 const StyledContactForm = styled(motion.form)`
-  font-size: 1.8rem;
+  font-size: 2rem;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  ${mediaQueries("desktopXS")`
+    font-size : 1.8rem;
+  `}
 `;
 const StyledInput = styled.input`
   font-family: inherit;
-  font-size: 1.8rem;
+  font-size: 2rem;
   background-color: black;
   height: 4rem;
   width: 100%;
@@ -146,18 +150,25 @@ const StyledInput = styled.input`
   }
 
   &::placeholder {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   &:focus {
     outline: none;
     border: 2px solid yellow;
   }
+  ${mediaQueries("desktopXS")`
+    font-size : 1.8rem;
+    &::placeholder {
+    font-size: 1.8rem;
+  };
+
+  `}
 `;
 
 const StyledTextArea = styled.textarea`
   font-family: inherit;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: white;
   width: 100%;
   border-radius: 20px;
@@ -166,7 +177,7 @@ const StyledTextArea = styled.textarea`
   padding: 1.5rem 1.5rem;
 
   &::placeholder {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   &:focus {
     outline: none;
@@ -175,6 +186,13 @@ const StyledTextArea = styled.textarea`
   &:focus ~ label {
     color: yellow;
   }
+  ${mediaQueries("desktopXS")`
+    font-size : 1.8rem;
+    &::placeholder {
+    font-size: 1.8rem;
+  };
+  
+  `}
 `;
 
 const StyledFormGroup = styled.div`

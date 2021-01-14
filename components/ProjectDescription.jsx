@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+
 import { Heading3, Para } from "../styles/typography";
 import Badge from "./Badge";
 import { mediaQueries } from "../styles/mediaQueries.js";
@@ -97,7 +98,10 @@ const ProjectH3 = styled(Heading3)`
   color: white;
   ${mediaQueries("desktopS")`
     font-size: 2.3rem;
-  `}
+  `};
+  ${mediaQueries("aboutMedia")`
+    font-size: 2rem;
+  `};
 `;
 const TextContainer = styled.div`
   max-width: 50rem;
@@ -110,6 +114,11 @@ const ProjectPara = styled(Para)`
     letter-spacing: 1.2px;
     line-height: 1.4;
   `}
+  ${mediaQueries("aboutMedia")`
+    font-size: 1.6rem;
+    letter-spacing: 1.2px;
+    line-height: 1.2;
+  `};
 `;
 
 const DescriptionContainer = styled.div`
@@ -121,6 +130,9 @@ const DescriptionContainer = styled.div`
       margin-left: 0;
       margin-right: 1rem;
     `};
+  /* ${mediaQueries("aboutMedia")`
+    display:none;
+  `} */
 `;
 const BadgesContainer = styled.div`
   display: flex;
@@ -136,9 +148,17 @@ const ButtonsContainer = styled.div`
 const StyledGitIcon = styled.svg`
   margin-right: 1rem;
   overflow: visible;
+  width: 4rem;
+  ${mediaQueries("desktopS")`
+    width: 3.5rem;
+   `};
 `;
 const StyledWebIcon = styled.svg`
   overflow: visible;
+  width: 4rem;
+  ${mediaQueries("desktopS")`
+    width: 3.5rem;
+   `};
 `;
 
 const ButtonContainerGit = styled.div`

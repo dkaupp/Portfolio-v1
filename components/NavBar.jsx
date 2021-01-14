@@ -55,6 +55,9 @@ const StyledLi = styled.li`
     color: ${theme.colors.yellow};
     transform: scale(1.1);
   }
+  ${mediaQueries("desktopS")`
+  font-size: 1.6rem;
+ `}
 `;
 
 export default NavBar;

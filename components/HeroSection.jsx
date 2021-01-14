@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 import { NavBar, MouseIcon } from "./";
+import { mediaQueries } from "../styles/mediaQueries.js";
 
 const HeroSection = () => {
   return (
@@ -42,6 +43,11 @@ const MouseIconContainer = styled(motion.div)`
   position: absolute;
   bottom: 1.5rem;
   width: 3.5rem;
+
+  ${mediaQueries("desktopS")`
+    width: 3rem;
+    bottom : .5rem;
+  `};
 `;
 
 const StyledH1 = styled(motion.img)`

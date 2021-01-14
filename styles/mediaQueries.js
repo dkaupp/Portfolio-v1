@@ -4,6 +4,7 @@ const bp = {
   mobileL: `480px`,
   tabletS: `600px`,
   tabletL: `768px`,
+  aboutMedia: `860px`,
   desktopXS: `900px`,
   desktopS: `1080px`,
   desktopM: `1200px`,
