@@ -33,6 +33,9 @@ const BadgeContainer = styled.div`
   ${mediaQueries("desktopS")`
     font-size: 1.3rem;
   `}
+  ${mediaQueries("aboutMediaS")`
+    margin: 1rem 1rem 1rem 0
+  `}
 `;
 
 export default Badge;

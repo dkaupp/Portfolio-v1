@@ -34,8 +34,6 @@ const projects = [
 const ProjectsSection = () => {
   const { navigationValue: value } = useContext(NavigationContext);
 
-  console.log(value);
-
   const [ref1, inView1] = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -93,19 +91,22 @@ const ProjectMobile = styled.img`
   display: none;
   max-width: 60rem;
 
-  /* ${mediaQueries("aboutMedia")`
+  ${mediaQueries("aboutMediaS")`
     display:block;
-    transform: tranlateX(50vh)
-  `} */
+  `}
 `;
 
 const ProjectsSectionContainer = styled(motion.section)`
-  padding: 6rem 3rem 0 3rem;
+  padding: 3rem 3rem 0 3rem;
   background-color: black;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  ${mediaQueries("aboutMediaS")`
+     padding: 3rem 1rem 0 1rem
+  `}
 `;
 const ProjectsContainer = styled.div`
   height: 100%;
@@ -120,7 +121,7 @@ const ProjectContainer = styled(motion.div)`
   opacity: 0;
   will-change: transform;
 
-  /* ${mediaQueries("aboutMedia")`
+  /* ${mediaQueries("aboutMediaS")`
     flex-direction: column
   `} */
 `;
@@ -128,7 +129,7 @@ const ProjectContainer = styled(motion.div)`
 const ProjectContainer1 = styled(ProjectContainer)`
   transform: translateX(50vw);
   ${({ value }) =>
-    value !== "about"
+    value !== "about" || value !== "contact"
       ? css`
           transition: all 1s ease-out;
         `
@@ -146,7 +147,7 @@ const ProjectContainer1 = styled(ProjectContainer)`
 const ProjectContainer2 = styled(ProjectContainer)`
   transform: translateX(-50vw);
   ${({ value }) =>
-    value !== "about"
+    value !== "about" || value === "contact"
       ? css`
           transition: all 1s ease-out;
         `
@@ -164,7 +165,7 @@ const ProjectContainer2 = styled(ProjectContainer)`
 const ProjectContainer3 = styled(ProjectContainer)`
   transform: translateX(50vw);
   ${({ value }) =>
-    value !== "about"
+    value !== "about" || value !== "contact"
       ? css`
           transition: all 1s ease-out;
         `

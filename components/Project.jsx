@@ -11,9 +11,9 @@ const StyledProject = styled.img`
   max-width: 60%;
   width: 100%;
   padding-top: 2rem;
-  /* 
-  ${mediaQueries("aboutMedia")`
+
+  ${mediaQueries("aboutMediaS")`
     display:none;
-  `} */
+  `}
 `;
 export default Project;

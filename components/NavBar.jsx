@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { mediaQueries } from "../styles/mediaQueries.js";
 import theme from "../styles/theme";
@@ -9,19 +10,25 @@ import NavigationContext from "../context/navigation";
 const NavBar = () => {
   const { handleNavigation } = useContext(NavigationContext);
 
+  const router = useRouter();
+
+  const handleRouter = (title) => {
+    router.replace("/");
+    handleNavigation(title);
+  };
+
   return (
     <StyledNav>
       <StyledUl>
         <Link href="#about">
-          <StyledLi onClick={() => handleNavigation("about")}>About</StyledLi>
+          <StyledLi onClick={() => handleRouter("about")}>About</StyledLi>
+          {/* <StyledLi onClick={() => handleNavigation("about")}>About</StyledLi> */}
         </Link>
         <Link href="#work">
-          <StyledLi onClick={() => handleNavigation("work")}>Work</StyledLi>
+          <StyledLi onClick={() => handleRouter("work")}>Work</StyledLi>
         </Link>
         <Link href="#contact">
-          <StyledLi onClick={() => handleNavigation("contact")}>
-            Contact
-          </StyledLi>
+          <StyledLi onClick={() => handleRouter("contact")}>Contact</StyledLi>
         </Link>
       </StyledUl>
     </StyledNav>
@@ -35,6 +42,11 @@ const StyledNav = styled.div`
   width: 100%;
   max-width: 134rem;
   padding: 0 3rem;
+
+  ${mediaQueries("tabletL")`
+    display: none ;
+    
+  `}
 `;
 const StyledUl = styled.ul`
   display: flex;

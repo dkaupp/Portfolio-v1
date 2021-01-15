@@ -123,6 +123,7 @@ const ProjectPara = styled(Para)`
 
 const DescriptionContainer = styled.div`
   max-width: 100%;
+
   ${(props) =>
     props.direction &&
     css`
@@ -130,13 +131,27 @@ const DescriptionContainer = styled.div`
       margin-left: 0;
       margin-right: 1rem;
     `};
-  /* ${mediaQueries("aboutMedia")`
-    display:none;
-  `} */
+  ${mediaQueries("aboutMediaS")`
+       position : absolute;
+       background-color : rgba(0, 0, 0, 0.62);
+       padding: 1rem;
+       margin-right: 1rem;
+       margin-left: 1rem;
+       text-align: left;
+
+
+       top : 25rem
+       
+       
+  `}
 `;
 const BadgesContainer = styled.div`
   display: flex;
   justify-content: ${(props) => (props.direction ? "flex-end" : "flex-start")};
+
+  ${mediaQueries("aboutMediaS")`
+   justify-content: flex-start;
+  `}
 `;
 
 const ButtonsContainer = styled.div`
@@ -144,6 +159,10 @@ const ButtonsContainer = styled.div`
   align-items: center;
   margin-top: 1rem;
   justify-content: ${(props) => (props.direction ? "flex-end" : "flex-start")};
+
+  ${mediaQueries("aboutMediaS")`
+    justify-content: flex-start
+  `}
 `;
 const StyledGitIcon = styled.svg`
   margin-right: 1rem;

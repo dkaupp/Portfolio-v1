@@ -54,17 +54,17 @@ const AboutSectionContainer = styled.section`
 const AboutImg = styled(motion.img)`
   max-width: 128rem;
   width: 100%;
-  /* ${mediaQueries("aboutMedia")`
+  ${mediaQueries("aboutMediaS")`
     display:none;
-  `} */
+  `}
 `;
 
 const AboutImgMobile = styled.img`
   width: 100%;
   display: none;
-  /* ${mediaQueries("aboutMedia")`
+  ${mediaQueries("aboutMediaS")`
     display:block;
-  `}; */
+  `};
 `;
 
 const AboutContainer = styled(motion.div)`

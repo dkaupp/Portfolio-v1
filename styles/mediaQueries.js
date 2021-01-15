@@ -3,6 +3,7 @@ const bp = {
   mobileM: `400px`,
   mobileL: `480px`,
   tabletS: `600px`,
+  aboutMediaS: `700px`,
   tabletL: `768px`,
   aboutMedia: `860px`,
   desktopXS: `900px`,
@@ -12,6 +13,5 @@ const bp = {
 };
 
 export const mediaQueries = (key) => {
-  console.log(`${bp[key]}`);
   return (style) => `@media (max-width : ${bp[key]}) {${style}}`;
 };

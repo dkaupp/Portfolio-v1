@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { mediaQueries } from "../styles/mediaQueries.js";
+import NavigationContext from "../context/navigation.js";
 
 const ContactSection = () => {
+  const { navigationValue: value } = useContext(NavigationContext);
+
   const { scrollYProgress } = useViewportScroll();
 
   const scrollAnimation = useTransform(
@@ -22,47 +25,47 @@ const ContactSection = () => {
         <ContactImgContainer>
           <ContactImg src="/contact.svg" />
           <ContactImgMobile src="/contact-mobile.png" />
+          <ContactFormContainer>
+            <StyledContactForm>
+              <StyledFormGroup>
+                <StyledInput
+                  type="text"
+                  name="name"
+                  id="name"
+                  required
+                  autoComplete="off"
+                />
+                <StyledLabel htmlFor="name">
+                  <StyledSpan>Name:</StyledSpan>
+                </StyledLabel>
+              </StyledFormGroup>
+              <StyledFormGroup>
+                <StyledInput
+                  type="text"
+                  name="email"
+                  id="email"
+                  required
+                  autoComplete="off"
+                />
+                <StyledLabel htmlFor="email">
+                  <StyledSpan>Email:</StyledSpan>
+                </StyledLabel>
+              </StyledFormGroup>
+              <StyledFormGroup>
+                <StyledTextArea
+                  rows="7"
+                  cols="20"
+                  id="message"
+                  name="message"
+                  required
+                ></StyledTextArea>
+                <StyledLabel htmlFor="message">
+                  <StyledSpan>Message:</StyledSpan>
+                </StyledLabel>
+              </StyledFormGroup>
+            </StyledContactForm>
+          </ContactFormContainer>
         </ContactImgContainer>
-        <ContactFormContainer>
-          <StyledContactForm>
-            <StyledFormGroup>
-              <StyledInput
-                type="text"
-                name="name"
-                id="name"
-                required
-                autoComplete="off"
-              />
-              <StyledLabel htmlFor="name">
-                <StyledSpan>Name:</StyledSpan>
-              </StyledLabel>
-            </StyledFormGroup>
-            <StyledFormGroup>
-              <StyledInput
-                type="text"
-                name="email"
-                id="email"
-                required
-                autoComplete="off"
-              />
-              <StyledLabel htmlFor="email">
-                <StyledSpan>Email:</StyledSpan>
-              </StyledLabel>
-            </StyledFormGroup>
-            <StyledFormGroup>
-              <StyledTextArea
-                rows="7"
-                cols="20"
-                id="message"
-                name="message"
-                required
-              ></StyledTextArea>
-              <StyledLabel htmlFor="message">
-                <StyledSpan>Message:</StyledSpan>
-              </StyledLabel>
-            </StyledFormGroup>
-          </StyledContactForm>
-        </ContactFormContainer>
       </ContactContainer>
     </ContactSectionContainer>
   );
@@ -86,6 +89,10 @@ const ContactSectionContainer = styled.section`
   background-color: black;
   padding: 0rem 3rem 3rem;
   overflow: hidden;
+
+  ${mediaQueries("aboutMediaS")`
+     padding: 0rem 1rem 1rem
+  `}
 `;
 const ContactContainer = styled(motion.div)`
   display: flex;
@@ -133,6 +140,9 @@ const StyledContactForm = styled(motion.form)`
   ${mediaQueries("desktopXS")`
     font-size : 1.8rem;
   `}
+  ${mediaQueries("aboutMedia")`
+    font-size : 1.6rem;
+  `}
 `;
 const StyledInput = styled.input`
   font-family: inherit;
@@ -161,6 +171,13 @@ const StyledInput = styled.input`
     font-size : 1.8rem;
     &::placeholder {
     font-size: 1.8rem;
+  };
+
+  `}
+  ${mediaQueries("aboutMedia")`
+    font-size : 1.6rem;
+    &::placeholder {
+    font-size: 1.6rem;
   };
 
   `}

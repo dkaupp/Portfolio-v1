@@ -4,11 +4,13 @@ import { motion } from "framer-motion";
 
 import { NavBar, MouseIcon } from "./";
 import { mediaQueries } from "../styles/mediaQueries.js";
+import MenuButton from "./MenuButton";
 
 const HeroSection = () => {
   return (
     <HeroSectionContainer>
       <NavBar />
+      <MenuButton />
       <Container>
         <StyledH1 src="/neon-heading.svg" />
       </Container>
@@ -30,6 +32,10 @@ const HeroSectionContainer = styled.section`
   align-items: center;
   flex-direction: column;
   position: relative;
+
+  ${mediaQueries("aboutMediaS")`
+     padding: 1rem 1rem 3rem 1rem
+  `}
 `;
 
 const Container = styled(motion.div)`

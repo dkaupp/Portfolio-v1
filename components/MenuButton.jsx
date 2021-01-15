@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+import { mediaQueries } from "../styles/mediaQueries";
+
 const StyledMenuButton = styled(motion.div)`
   margin-left: auto;
   position: fixed;
@@ -9,19 +11,21 @@ const StyledMenuButton = styled(motion.div)`
   top: 3vh;
   display: none;
 
-  @media (max-width: 1200px) {
-    display: block;
-  }
+  ${mediaQueries("tabletL")`
+    display: block ;  
+  `}
+  ${mediaQueries("aboutMediaS")`
+    right: 2rem;
+    top: 1rem; 
+  `}
 `;
 
 const Menu = styled(motion.svg)`
-  width: 5.5.ptrem;
+  width: 4.5rem;
 `;
 
 const MenuButton = () => {
   const [isActive, setIsActive] = useState(false);
-
-  console.log(isActive);
 
   return (
     <StyledMenuButton onClick={() => setIsActive(!isActive)}>
