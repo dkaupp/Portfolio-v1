@@ -22,7 +22,6 @@ const NavBar = () => {
       <StyledUl>
         <Link href="#about">
           <StyledLi onClick={() => handleRouter("about")}>About</StyledLi>
-          {/* <StyledLi onClick={() => handleNavigation("about")}>About</StyledLi> */}
         </Link>
         <Link href="#work">
           <StyledLi onClick={() => handleRouter("work")}>Work</StyledLi>

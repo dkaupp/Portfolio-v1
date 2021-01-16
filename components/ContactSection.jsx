@@ -90,7 +90,7 @@ const ContactSectionContainer = styled.section`
   padding: 0rem 3rem 3rem;
   overflow: hidden;
 
-  ${mediaQueries("aboutMediaS")`
+  ${mediaQueries("768px")`
      padding: 0rem 1rem 1rem
   `}
 `;

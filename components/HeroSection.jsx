@@ -2,15 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import { NavBar, MouseIcon } from "./";
+import { NavBar, MouseIcon, NavBarMobile } from "./";
 import { mediaQueries } from "../styles/mediaQueries.js";
-import MenuButton from "./MenuButton";
 
 const HeroSection = () => {
   return (
     <HeroSectionContainer>
       <NavBar />
-      <MenuButton />
+      <NavBarMobile />
       <Container>
         <StyledH1 src="/neon-heading.svg" />
       </Container>
@@ -33,7 +32,7 @@ const HeroSectionContainer = styled.section`
   flex-direction: column;
   position: relative;
 
-  ${mediaQueries("aboutMediaS")`
+  ${mediaQueries("tabletL")`
      padding: 1rem 1rem 3rem 1rem
   `}
 `;

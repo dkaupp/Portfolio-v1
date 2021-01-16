@@ -6,7 +6,7 @@ export { default as Head } from "./Head";
 export { default as HeadSection } from "./HeadSection";
 export { default as HeroMain } from "./HeroMain";
 export { default as HeroSection } from "./HeroSection";
-export { default as MenuButton } from "./MenuButton";
+export { default as NavBarMobile } from "./NavBarMobile";
 export { default as MouseIcon } from "./MouseIcon";
 export { default as NavBar } from "./NavBar";
 export { default as Project } from "./Project.jsx";
