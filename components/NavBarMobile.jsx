@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { motion } from "framer-motion";
 
 import { mediaQueries } from "../styles/mediaQueries";
+import ListLink from "./ListLink.js";
 
 const StyledMenuButton = styled(motion.div)`
   margin-left: auto;
@@ -23,7 +24,7 @@ const MenuButtonContainer = styled(motion.svg)`
 `;
 
 const StyledNavBar = styled.div`
-  background-color: black;
+  /* background-color: black; */
   width: 100%;
   height: 6.5rem;
   position: fixed;
@@ -42,18 +43,26 @@ const StyledNavBar = styled.div`
     `}
 `;
 
+const StyledUl = styled.ul`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+`;
+
 const SlidingMenu = styled.div`
   position: fixed;
   background-color: red;
-  /* background-color: rgba(0, 0, 0, 0.62); */
   height: 110%;
+  min-height: 500px;
   width: 60%;
   z-index: 3;
   right: 0;
   display: none;
   will-change: transform;
   transform: translateX(100%);
-  transition: all 0.3s linear;
+  transition: transform 0.3s linear;
 
   ${(props) =>
     props.isActive &&
@@ -65,6 +74,47 @@ const SlidingMenu = styled.div`
     display: block ;
   `}
 `;
+
+const BottomLine = styled.line`
+  transform-origin: 33px 45px;
+
+  transition: all 0.2s linear;
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      transform: translateY(-11px) rotate(-45deg);
+    `}
+`;
+
+const TopLine = styled.line`
+  transform-origin: 33px 21px;
+
+  transition: all 0.2s linear;
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      transform: translateY(13px) rotate(45deg);
+    `}
+`;
+
+const CenterLine = styled.line`
+  transition: all 0.2s linear;
+  transition-delay: 0.1s;
+  ${(props) =>
+    props.isActive &&
+    css`
+      transition-delay: 0s;
+      opacity: 0;
+    `}
+`;
+
+const links = [
+  { id: 1, title: "about", href: "#about" },
+  { id: 2, title: "work", href: "#work" },
+  { id: 3, title: "contact", href: "#contact" },
+];
 
 const NavBarMobile = () => {
   const [isActive, setIsActive] = useState(false);
@@ -87,49 +137,52 @@ const NavBarMobile = () => {
               cy="33"
               r="32"
               stroke="white"
-              strokeWidth="2"
+              strokeWidth="3"
             />
-            <motion.line
+            <TopLine
               id="line3"
               x1="15"
               y1="21"
               x2="51"
               y2="21"
               stroke="white"
-              strokeWidth="2"
+              strokeWidth="3"
               strokeLinecap="round"
-              animate={isActive ? { rotate: 45, y: 13 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.3 }}
+              isActive={isActive}
             />
-            <motion.line
+            <CenterLine
               id="line2"
               x1="15"
               y1="33"
               x2="51"
               y2="33"
               stroke="white"
-              strokeWidth="2"
+              strokeWidth="3"
               strokeLinecap="round"
               strokeLinejoin="round"
-              style={isActive ? { opacity: 0 } : { opacity: 1 }}
-              transition={{ duration: 0.3, delay: 5 }}
+              isActive={isActive}
             />
-            <motion.line
+            <BottomLine
               id="line1"
               x1="15"
               y1="45"
               x2="51"
               y2="45"
               stroke="white"
-              strokeWidth="2"
+              strokeWidth="3"
               strokeLinecap="round"
-              animate={isActive ? { rotate: -45, y: -11 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.3 }}
+              isActive={isActive}
             />
           </g>
         </MenuButtonContainer>
       </StyledMenuButton>
-      <SlidingMenu isActive={isActive}></SlidingMenu>
+      <SlidingMenu isActive={isActive}>
+        <StyledUl>
+          {links.map((link) => (
+            <ListLink key={link.id} href={link.href} title={link.title} />
+          ))}
+        </StyledUl>
+      </SlidingMenu>
     </>
   );
 };

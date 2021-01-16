@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import NavigationContext from "../context/navigation";
+import theme from "../styles/theme";
+import { mediaQueries } from "../styles/mediaQueries";
 
 const ListLink = ({ href, title }) => {
   const { handleNavigation } = useContext(NavigationContext);
@@ -17,7 +19,7 @@ const ListLink = ({ href, title }) => {
 
   return (
     <Link href={href}>
-      <StyledLi onClick={() => handleRouter(title)}>About</StyledLi>
+      <StyledLi onClick={() => handleRouter(title)}>{title}</StyledLi>
     </Link>
   );
 };
