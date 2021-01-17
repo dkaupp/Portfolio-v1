@@ -119,6 +119,8 @@ const links = [
 const NavBarMobile = () => {
   const [isActive, setIsActive] = useState(false);
 
+  const handleIsActive = () => setIsActive(false);
+
   return (
     <>
       <StyledNavBar isActive={isActive} />
@@ -179,7 +181,12 @@ const NavBarMobile = () => {
       <SlidingMenu isActive={isActive}>
         <StyledUl>
           {links.map((link) => (
-            <ListLink key={link.id} href={link.href} title={link.title} />
+            <ListLink
+              key={link.id}
+              href={link.href}
+              title={link.title}
+              onIsActive={handleIsActive}
+            />
           ))}
         </StyledUl>
       </SlidingMenu>

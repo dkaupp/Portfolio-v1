@@ -7,7 +7,7 @@ import NavigationContext from "../context/navigation";
 import theme from "../styles/theme";
 import { mediaQueries } from "../styles/mediaQueries";
 
-const ListLink = ({ href, title }) => {
+const ListLink = ({ href, title, onIsActive = null }) => {
   const { handleNavigation } = useContext(NavigationContext);
 
   const router = useRouter();
@@ -15,6 +15,7 @@ const ListLink = ({ href, title }) => {
   const handleRouter = (title) => {
     router.replace("/");
     handleNavigation(title);
+    onIsActive ? onIsActive() : null;
   };
 
   return (
