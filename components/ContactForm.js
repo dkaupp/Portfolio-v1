@@ -51,13 +51,12 @@ const ContactForm = () => {
 const ContactFormContainer = styled.div`
   position: absolute;
   top: 26%;
-  /* width: 40%;
-  max-width: 35rem; */
   width: 34rem;
 
   ${mediaQueries("desktopS")`
-    top: 23%;
-    min-width: 28rem;
+    top: 21%;
+
+    width: 30rem
   `}
 `;
 
@@ -135,7 +134,7 @@ const StyledTextArea = styled.textarea`
   &:focus ~ label {
     color: yellow;
   }
-  ${mediaQueries("desktopXS")`
+  ${mediaQueries("desktopS")`
     font-size : 1.8rem;
     &::placeholder {
     font-size: 1.8rem;

@@ -56,9 +56,11 @@ const ContactImgContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${mediaQueries("desktopXS")`
-     max-width : 60rem
-     `}
+
+  ${mediaQueries("desktopS")`
+    width: 50rem
+    
+  `}
 `;
 
 const ContactImg = styled(motion.img)`
@@ -76,6 +78,7 @@ const ContactImgMobile = styled(motion.img)`
 
   ${mediaQueries("desktopS")`
     display: block;
+    
   `}
 `;
 
