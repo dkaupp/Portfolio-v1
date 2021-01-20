@@ -138,10 +138,9 @@ const DescriptionContainer = styled.div`
        margin-right: 1rem;
        margin-left: 1rem;
        text-align: left;
-
-
-       top : 25rem
        
+       width: 90%;
+       bottom : 36.5%
        
   `}
 `;

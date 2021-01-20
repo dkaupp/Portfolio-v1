@@ -105,6 +105,10 @@ const AboutTextContainer = styled(motion.div)`
     max-width: 40rem;
     margin-left: 2rem;
   `};
+
+  ${mediaQueries("desktopS")`
+    display: none;
+  `}
 `;
 
 const Container = styled.div`

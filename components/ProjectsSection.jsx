@@ -89,7 +89,7 @@ const ProjectMobile = styled.img`
   width: 100%;
   padding-top: 2rem;
   display: none;
-  max-width: 60rem;
+  /* max-width: 60rem; */
 
   ${mediaQueries("aboutMediaS")`
     display:block;
@@ -120,10 +120,6 @@ const ProjectContainer = styled(motion.div)`
   justify-content: center;
   opacity: 0;
   will-change: transform;
-
-  /* ${mediaQueries("aboutMediaS")`
-    flex-direction: column
-  `} */
 `;
 
 const ProjectContainer1 = styled(ProjectContainer)`
@@ -142,6 +138,9 @@ const ProjectContainer1 = styled(ProjectContainer)`
       transform: translateX(0);
       opacity: 1;
     `};
+  ${mediaQueries("aboutMediaS")`
+    width: 100%;
+  `}
 `;
 
 const ProjectContainer2 = styled(ProjectContainer)`
@@ -160,6 +159,10 @@ const ProjectContainer2 = styled(ProjectContainer)`
       transform: translateX(0);
       opacity: 1;
     `};
+  ${mediaQueries("aboutMediaS")`
+    width: 100%;
+    padding: 1rem;
+  `}
 `;
 
 const ProjectContainer3 = styled(ProjectContainer)`
@@ -178,6 +181,10 @@ const ProjectContainer3 = styled(ProjectContainer)`
       transform: translateX(0);
       opacity: 1;
     `};
+  ${mediaQueries("aboutMediaS")`
+    width: 100%;
+    padding: .5rem;
+  `}
 `;
 
 export default ProjectsSection;
