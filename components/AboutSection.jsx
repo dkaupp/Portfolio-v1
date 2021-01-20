@@ -106,7 +106,7 @@ const AboutTextContainer = styled(motion.div)`
     margin-left: 2rem;
   `};
 
-  ${mediaQueries("desktopS")`
+  ${mediaQueries("aboutMediaS")`
     display: none;
   `}
 `;

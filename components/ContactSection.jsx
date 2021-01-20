@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
 import { motion, useTransform, useViewportScroll } from "framer-motion";
@@ -28,7 +28,7 @@ const ContactSection = () => {
           <ContactImg src="/contact.svg" />
           <ContactImgMobile src="/contact-mobile.png" isActive={isActive} />
         </ContactImgContainer>
-        <ContactForm isActive={isActive} />
+        <ContactForm isActive={isActive} setIsActive={setIsActive} />
         <MailIcon
           width="185"
           height="114"
