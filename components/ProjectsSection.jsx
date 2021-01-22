@@ -104,14 +104,22 @@ const ProjectsSectionContainer = styled(motion.section)`
   justify-content: center;
   align-items: center;
 
+  ${mediaQueries("aboutMedia")`
+     padding: 3rem 2rem 0 2rem
+  `}
   ${mediaQueries("aboutMediaS")`
      padding: 3rem 1rem 0 1rem
+  `}
+   ${mediaQueries("mobileM")`
+     padding : 2rem 0;
+  `}
+   ${mediaQueries("mobileM")`
+     padding : 0;
   `}
 `;
 const ProjectsContainer = styled.div`
   height: 100%;
   width: 100%;
-  max-width: 128rem;
 `;
 
 const ProjectContainer = styled(motion.div)`
@@ -163,6 +171,14 @@ const ProjectContainer2 = styled(ProjectContainer)`
     width: 100%;
     padding: 1rem;
   `}
+
+  ${mediaQueries("aboutMediaS")`
+    padding: 1rem;
+  `}
+
+  ${mediaQueries("mobileR")`
+   padding: .7rem;
+  `}
 `;
 
 const ProjectContainer3 = styled(ProjectContainer)`
@@ -183,7 +199,10 @@ const ProjectContainer3 = styled(ProjectContainer)`
     `};
   ${mediaQueries("aboutMediaS")`
     width: 100%;
-    padding: .5rem;
+    padding: 0rem;
+  `}
+  ${mediaQueries("mobileR")`
+   padding: 0rem;
   `}
 `;
 

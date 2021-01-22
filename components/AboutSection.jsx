@@ -50,6 +50,20 @@ const AboutSection = () => {
 const AboutSectionContainer = styled.section`
   background-color: black;
   padding: 3rem 3rem 3rem 3rem;
+
+  ${mediaQueries("aboutMedia")`
+    padding : 3rem 2rem;
+  `}
+  ${mediaQueries("aboutMediaS")`
+    padding : 3rem 2rem;
+  `};
+
+  ${mediaQueries("mobileM")`
+     padding : 2rem 1rem;
+  `}
+  ${mediaQueries("mobileR")`
+     padding : 2rem .5rem;
+  `}
 `;
 const AboutImg = styled(motion.img)`
   max-width: 128rem;
@@ -88,8 +102,8 @@ const AboutContainer = styled(motion.div)`
       transform: translateY(0rem);
       opacity: 1;
     `}
-    ${mediaQueries("desktopXS")`
-      flex-direction : row
+    ${mediaQueries("aboutMediaS")`
+     position: relative;
   `}
 `;
 
@@ -102,21 +116,39 @@ const AboutTextContainer = styled(motion.div)`
   position: absolute;
 
   ${mediaQueries("aboutMedia")`
-    max-width: 40rem;
+
     margin-left: 2rem;
+  `};
+  ${mediaQueries("tabletL")`
+
+    max-width: 45rem;
   `};
 
   ${mediaQueries("aboutMediaS")`
-    display: none;
+     max-width: 90%;
+     margin-left: 0;
+     top: 34%;
+     
+  `}
+  ${mediaQueries("mobileM")`
+     max-width: 90%;
+     top: 33%;
+  `}
+  ${mediaQueries("mobileR")`
+     max-width: 90%;
+     top: 31%;
   `}
 `;
 
 const Container = styled.div`
   display: flex;
   align-items: center;
-  position: relative;
   max-width: 128rem;
   width: 100%;
+
+  ${mediaQueries("aboutMediaS")`
+    justify-content: center;
+  `};
 `;
 const AboutH3 = styled(Heading3)`
   ${mediaQueries("desktopS")`
@@ -130,6 +162,9 @@ const AboutH3 = styled(Heading3)`
 const AboutH32 = styled(AboutH3)`
   margin-top: 0.5rem;
   ${mediaQueries("aboutMedia")`
+    margin-top: .5rem;
+  `};
+  ${mediaQueries("mobileM")`
     margin-top: .5rem;
   `};
 `;
@@ -149,6 +184,7 @@ const AboutSectionPara = styled(Para)`
 
 const StyledListContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 export default AboutSection;

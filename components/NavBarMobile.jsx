@@ -14,7 +14,12 @@ const StyledMenuButton = styled(motion.div)`
   ${mediaQueries("tabletL")`
     display: block ;
     right: 2rem;
-    top: 1rem; 
+    top: 2rem; 
+  `}
+  ${mediaQueries("mobileM")`
+    display: block ;
+    right: 1.5rem;
+    top: 1.5rem; 
   `}
 `;
 

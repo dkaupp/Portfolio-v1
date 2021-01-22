@@ -1,5 +1,6 @@
 const bp = {
   mobileS: `330px`,
+  mobileR: `345px`,
   mobileM: `400px`,
   mobileL: `480px`,
   tabletS: `600px`,

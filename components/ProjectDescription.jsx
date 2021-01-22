@@ -143,6 +143,9 @@ const DescriptionContainer = styled.div`
        bottom : 36.5%
        
   `}
+  ${mediaQueries("mobileS")`
+     bottom: 35%;
+   `}
 `;
 const BadgesContainer = styled.div`
   display: flex;

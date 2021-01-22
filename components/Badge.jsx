@@ -34,7 +34,10 @@ const BadgeContainer = styled.div`
     font-size: 1.3rem;
   `}
   ${mediaQueries("aboutMediaS")`
-    margin: 1rem 1rem 1rem 0
+    margin: 1rem 1rem 1rem 0;
+  `}
+   ${mediaQueries("mobileL")`
+    margin-bottom : .3rem
   `}
 `;
 

@@ -35,6 +35,9 @@ const HeroSectionContainer = styled.section`
   ${mediaQueries("tabletL")`
      padding: 1rem 1rem 3rem 1rem
   `}
+  ${mediaQueries("mobileL")`
+     padding: 1rem .5rem 0rem .5rem
+  `}
 `;
 
 const Container = styled(motion.div)`
@@ -52,6 +55,10 @@ const MouseIconContainer = styled(motion.div)`
   ${mediaQueries("desktopS")`
     width: 3rem;
     bottom : .5rem;
+  `};
+  ${mediaQueries("tabletS")`
+    width: 3rem;
+    bottom : 0;
   `};
 `;
 

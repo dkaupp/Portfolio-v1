@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import NavigationContext from "../context/navigation.js";
 
 import { mediaQueries } from "../styles/mediaQueries.js";
 
@@ -12,11 +13,17 @@ const links = [
 ];
 
 const NavBar = () => {
+  const { handleNavigation } = useContext(NavigationContext);
   return (
     <StyledNav>
       <StyledUl>
         {links.map((link) => (
-          <ListLink key={link.id} href={link.href} title={link.title} />
+          <ListLink
+            key={link.id}
+            href={link.href}
+            title={link.title}
+            onClick={() => handleNavigation(link.title)}
+          />
         ))}
       </StyledUl>
     </StyledNav>
