@@ -120,6 +120,7 @@ const ProjectsSectionContainer = styled(motion.section)`
 const ProjectsContainer = styled.div`
   height: 100%;
   width: 100%;
+  max-width: 128rem;
 `;
 
 const ProjectContainer = styled(motion.div)`

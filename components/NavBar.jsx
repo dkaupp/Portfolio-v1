@@ -35,7 +35,7 @@ const StyledNav = styled.div`
   position: absolute;
   top: 0;
   width: 100%;
-  max-width: 134rem;
+  max-width: 128rem;
   padding: 0 3rem;
 
   ${mediaQueries("tabletL")`

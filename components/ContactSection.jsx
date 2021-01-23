@@ -62,7 +62,7 @@ const MailIcon = styled.svg`
   display: none;
   position: absolute;
   width: 10rem;
-  bottom: 41rem;
+  top: 33%;
   transition: scale 0.1s ease;
   overflow: visible;
 
@@ -105,7 +105,7 @@ const ContactContainer = styled(motion.div)`
   align-items: center;
   will-change: transform;
   position: relative;
-  min-height: 80rem;
+  min-height: 60rem;
 `;
 
 const ContactImgContainer = styled.div`
