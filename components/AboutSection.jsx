@@ -104,6 +104,8 @@ const AboutContainer = styled(motion.div)`
     `}
     ${mediaQueries("aboutMediaS")`
      position: relative;
+    //  transition : opacity .5s ease;
+    margin-top: 3rem;
   `}
 `;
 

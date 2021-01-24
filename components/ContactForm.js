@@ -28,8 +28,6 @@ const ContactForm = ({ isActive, setIsActive }) => {
 
   const { name, email, message } = data;
 
-  console.log(errors);
-
   return (
     <ContactFormContainer isActive={isActive}>
       <StyledContactForm onSubmit={handleSubmit}>

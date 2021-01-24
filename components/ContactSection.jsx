@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled, { css } from "styled-components";
 
 import { motion, useTransform, useViewportScroll } from "framer-motion";
@@ -6,8 +6,11 @@ import { mediaQueries } from "../styles/mediaQueries.js";
 
 import theme from "../styles/theme";
 import ContactForm from "./ContactForm";
+import NavigationContext from "../context/navigation";
 
 const ContactSection = () => {
+  const { navigationValue } = useContext(NavigationContext);
+
   const [isActive, setIsActive] = useState(false);
 
   const { scrollYProgress } = useViewportScroll();
@@ -21,7 +24,7 @@ const ContactSection = () => {
   return (
     <ContactSectionContainer id="contact">
       <ContactContainer
-        // style={{ y: scrollAnimation }}
+        style={{ y: scrollAnimation || 0 }}
         transition={{ ease: "easeIn" }}
       >
         <ContactImgContainer>
