@@ -64,7 +64,7 @@ const ContactForm = ({ isActive, setIsActive }) => {
           </StyledLabel>
         </StyledFormGroup>
         <StyledFormGroup>
-          <StyledTextArea
+          <MessageInput
             rows="7"
             cols="20"
             id="message"
@@ -73,7 +73,7 @@ const ContactForm = ({ isActive, setIsActive }) => {
             value={message}
             errors={errors}
             required
-          ></StyledTextArea>
+          />
           <StyledLabel htmlFor="message">
             <StyledSpan>Message:</StyledSpan>
           </StyledLabel>
@@ -276,15 +276,18 @@ const StyledTextArea = styled.textarea`
   `}
   ${mediaQueries("tabletS")`
     border: 2px solid #6DFC3C;
+    
   };
 
   `}
+`;
 
-${(props) =>
+const MessageInput = styled(StyledTextArea)`
+  ${(props) =>
     props.errors &&
     props.errors.message &&
     css`
-      border: 2px solid red !important;
+      border: 2px solid red;
     `}
 `;
 
