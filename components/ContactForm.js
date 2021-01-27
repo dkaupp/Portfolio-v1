@@ -5,6 +5,7 @@ import Joi from "joi-browser";
 import { mediaQueries } from "../styles/mediaQueries.js";
 import useForm from "../hooks/useForm";
 import theme from "../styles/theme";
+import { sendContactMail } from "../api/mail";
 
 const schema = {
   email: Joi.string().email().min(5).max(30).required().label("Email"),
@@ -19,9 +20,11 @@ const ContactForm = ({ isActive, setIsActive }) => {
       email: "",
       message: "",
     },
-    onSubmit(data) {
-      console.log(data);
-      setIsActive(false);
+    async onSubmit(data) {
+      const result = await sendContactMail(data);
+      if (!result.ok) return console.log("Fuuck!!!");
+
+      return setIsActive(false);
     },
     schema,
   });
