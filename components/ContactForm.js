@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import Joi from "joi-browser";
 
@@ -13,7 +13,7 @@ const schema = {
   message: Joi.string().required().label("message"),
 };
 
-const ContactForm = ({ isActive, setIsActive }) => {
+const ContactForm = ({ isActive, setIsActive, setMailSend, mailSend }) => {
   const { data, handleChange, handleSubmit, errors } = useForm({
     initialData: {
       name: "",
@@ -23,7 +23,7 @@ const ContactForm = ({ isActive, setIsActive }) => {
     async onSubmit(data) {
       const result = await sendContactMail(data);
       if (!result.ok) return console.log(rusult);
-
+      setMailSend(true);
       return setIsActive(false);
     },
     schema,
@@ -32,7 +32,7 @@ const ContactForm = ({ isActive, setIsActive }) => {
   const { name, email, message } = data;
 
   return (
-    <ContactFormContainer isActive={isActive}>
+    <ContactFormContainer isActive={isActive} mailSend={mailSend}>
       <StyledContactForm onSubmit={handleSubmit}>
         <StyledFormGroup>
           <NameInput
@@ -165,6 +165,11 @@ ${(props) =>
     props.isActive &&
     css`
       transform: scale(1) !important;
+    `}
+${(props) =>
+    props.mailSend &&
+    css`
+      transform: scale(0);
     `}
 `;
 
