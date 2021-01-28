@@ -29,7 +29,7 @@ app.prepare().then(() => {
       text: message,
     };
     try {
-      await sendMail(mailOptions);
+      sendMail(mailOptions);
       res.send("success");
     } catch (error) {
       console.log(error);

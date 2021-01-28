@@ -22,7 +22,7 @@ const ContactForm = ({ isActive, setIsActive }) => {
     },
     async onSubmit(data) {
       const result = await sendContactMail(data);
-      if (!result.ok) return console.log("Fuuck!!!");
+      if (!result.ok) return console.log(rusult);
 
       return setIsActive(false);
     },

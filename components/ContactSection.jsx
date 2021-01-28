@@ -11,7 +11,7 @@ import NavigationContext from "../context/navigation";
 const ContactSection = () => {
   const { navigationValue } = useContext(NavigationContext);
 
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(null);
 
   const { scrollYProgress } = useViewportScroll();
 
@@ -39,7 +39,7 @@ const ContactSection = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           onClick={() => setIsActive(true)}
-          isActive={isActive ? true : false}
+          isActive={isActive}
         >
           <g id="mail-icon">
             <path

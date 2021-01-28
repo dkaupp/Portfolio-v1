@@ -12,13 +12,20 @@ let transporter = nodemailer.createTransport({
   },
 });
 
-const sendMail = (mailOptions) => {
-  return new Promise((resolve, reject) => {
-    transporter.sendMail(mailOptions, (err, info) => {
-      if (err) return reject(err);
+// const sendMail = (mailOptions) => {
+//   return new Promise((resolve, reject) => {
+//     transporter.sendMail(mailOptions, (err, info) => {
+//       if (err) return reject(err);
 
-      return resolve(info);
-    });
+//       return resolve(info);
+//     });
+//   });
+// };
+const sendMail = (mailOptions) => {
+  transporter.sendMail(mailOptions, (err, info) => {
+    if (err) return console.log(err);
+
+    return console.log(info);
   });
 };
 
