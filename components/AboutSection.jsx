@@ -40,7 +40,7 @@ const AboutSection = () => {
             </StyledListContainer>
           </AboutTextContainer>
           <AboutImg src="/about.svg" />
-          <AboutImgMobile src="/about-mobile.png" />
+          <AboutImgMobile src="/about-mobile.svg" />
         </Container>
       </AboutContainer>
     </AboutSectionContainer>
@@ -121,6 +121,11 @@ const AboutTextContainer = styled(motion.div)`
 
     margin-left: 2rem;
   `};
+  ${mediaQueries("aboutPhoto")`
+
+  max-width: 45rem;
+  `};
+
   ${mediaQueries("tabletL")`
 
     max-width: 45rem;

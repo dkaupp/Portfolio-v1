@@ -6,6 +6,7 @@ const bp = {
   tabletS: `600px`,
   aboutMediaS: `700px`,
   tabletL: `768px`,
+  aboutPhoto: `800px`,
   aboutMedia: `860px`,
   desktopXS: `900px`,
   desktopS: `1080px`,
