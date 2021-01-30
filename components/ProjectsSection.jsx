@@ -10,10 +10,10 @@ import { mediaQueries } from "../styles/mediaQueries";
 const projects = [
   {
     id: 1,
-    heading: "It Logger App",
+    heading: "Pass it on",
     description:
-      "Bug logger app , with role base login . The front end was created using React/Redux, and back end with Node , Express and Mongoose.",
-    badges: ["mongodb", "react", "redux", "nodejs"],
+      "Mobile app for classified ad posting. The front end was created using React Native, Expo and back end with Node , Express, Mongoose.",
+    badges: ["mongodb", "react", "nodejs"],
   },
   {
     id: 2,
@@ -77,7 +77,7 @@ const ProjectsSection = () => {
             description={projects[2].description}
             badges={projects[2].badges}
           />
-          <Project source="/project3-svg.svg" />
+          <Project source="/project3.png" />
           <ProjectMobile src="/project3-mobile.png" />
         </ProjectContainer3>
       </ProjectsContainer>
@@ -149,6 +149,7 @@ const ProjectContainer1 = styled(ProjectContainer)`
     `};
   ${mediaQueries("aboutMediaS")`
     width: 100%;
+    padding: 1rem;
   `}
 `;
 
@@ -175,10 +176,7 @@ const ProjectContainer2 = styled(ProjectContainer)`
 
   ${mediaQueries("aboutMediaS")`
     padding: 1rem;
-  `}
-
-  ${mediaQueries("mobileR")`
-   padding: .7rem;
+    width: 100%;
   `}
 `;
 
@@ -200,10 +198,7 @@ const ProjectContainer3 = styled(ProjectContainer)`
     `};
   ${mediaQueries("aboutMediaS")`
     width: 100%;
-    padding: 0rem;
-  `}
-  ${mediaQueries("mobileR")`
-   padding: 0rem;
+    padding: 1rem;
   `}
 `;
 

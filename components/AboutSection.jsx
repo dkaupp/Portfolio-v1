@@ -54,6 +54,10 @@ const AboutSectionContainer = styled.section`
   ${mediaQueries("aboutMedia")`
     padding : 3rem 2rem;
   `}
+  ${mediaQueries("tabletL")`
+    padding : 3rem 1.5rem;
+  `}
+
   ${mediaQueries("aboutMediaS")`
     padding : 3rem 2rem;
   `};
