@@ -7,7 +7,7 @@ import NavigationContext from "../context/navigation";
 import theme from "../styles/theme";
 import { mediaQueries } from "../styles/mediaQueries";
 
-const ListLink = ({ href, title, onIsActive = null }) => {
+const ListLink = ({ href, title, onIsActive = null, color = "white" }) => {
   const { handleNavigation } = useContext(NavigationContext);
 
   const router = useRouter();
@@ -20,14 +20,16 @@ const ListLink = ({ href, title, onIsActive = null }) => {
 
   return (
     <Link href={href}>
-      <StyledLi onClick={() => handleRouter(title)}>{title}</StyledLi>
+      <StyledLi color={color} onClick={() => handleRouter(title)}>
+        {title}
+      </StyledLi>
     </Link>
   );
 };
 
 const StyledLi = styled.li`
   font-family: inherit;
-  color: white;
+  color: ${(props) => props.color && props.color};
   font-weight: bold;
   font-size: 1.8rem;
   list-style: none;

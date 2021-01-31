@@ -139,7 +139,7 @@ const MailIcon = styled.svg`
 const ContactSectionContainer = styled.section`
   background-color: black;
   padding: 0rem 3rem 3rem;
-  overflow: hidden;
+  overflow: visible;
 
   ${mediaQueries("aboutMediaS")`
      padding: 0rem 1rem 1rem

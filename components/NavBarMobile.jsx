@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import { mediaQueries } from "../styles/mediaQueries";
 import ListLink from "./ListLink.js";
+import theme from "../styles/theme";
 
 const StyledMenuButton = styled(motion.div)`
   margin-left: auto;
@@ -26,6 +27,7 @@ const StyledMenuButton = styled(motion.div)`
 const MenuButtonContainer = styled(motion.svg)`
   width: 4.5rem;
   height: 4.5rem;
+  overflow: visible;
 `;
 
 const StyledNavBar = styled.div`
@@ -37,7 +39,7 @@ const StyledNavBar = styled.div`
   display: none;
   z-index: 3;
   transition: opacity 0.4s ease-out;
-
+  overflow: visible;
   ${mediaQueries("tabletL")`
     display: block ;
   `}
@@ -58,7 +60,7 @@ const StyledUl = styled.ul`
 
 const SlidingMenu = styled.div`
   position: fixed;
-  background-color: red;
+  background-color: ${theme.colors.react};
   height: 110%;
   min-height: 500px;
   width: 60%;
@@ -89,6 +91,7 @@ const BottomLine = styled.line`
     props.isActive &&
     css`
       transform: translateY(-11px) rotate(-45deg);
+      stroke: black;
     `}
 `;
 
@@ -101,6 +104,7 @@ const TopLine = styled.line`
     props.isActive &&
     css`
       transform: translateY(13px) rotate(45deg);
+      stroke: black;
     `}
 `;
 
@@ -112,6 +116,14 @@ const CenterLine = styled.line`
     css`
       transition-delay: 0s;
       opacity: 0;
+    `}
+`;
+
+const StyledCircle = styled.circle`
+  ${(props) =>
+    props.isActive &&
+    css`
+      stroke: black;
     `}
 `;
 
@@ -138,7 +150,8 @@ const NavBarMobile = () => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <g id="menu">
-            <circle
+            <StyledCircle
+              isActive={isActive}
               id="Ellipse 80"
               cx="33"
               cy="33"
@@ -187,6 +200,7 @@ const NavBarMobile = () => {
         <StyledUl>
           {links.map((link) => (
             <ListLink
+              color="black"
               key={link.id}
               href={link.href}
               title={link.title}
