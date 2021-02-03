@@ -241,7 +241,7 @@ const EmailInput = styled(StyledInput)`
     props.errors &&
     props.errors.email &&
     css`
-      border: 2px solid red;
+      border: 2px solid ${theme.colors.figma};
     `}
 `;
 const NameInput = styled(StyledInput)`
@@ -249,7 +249,7 @@ const NameInput = styled(StyledInput)`
     props.errors &&
     props.errors.name &&
     css`
-      border: 2px solid red;
+      border: 2px solid ${theme.colors.figma};
     `}
 `;
 
@@ -293,7 +293,7 @@ const MessageInput = styled(StyledTextArea)`
     props.errors &&
     props.errors.message &&
     css`
-      border: 2px solid red;
+      border: 2px solid ${theme.colors.figma};
     `}
 `;
 
