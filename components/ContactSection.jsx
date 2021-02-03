@@ -29,7 +29,6 @@ const ContactSection = () => {
         transition={{ ease: "easeIn" }}
       >
         <ContactImgContainer>
-          <ContactImg src="/contact.svg" />
           <ContactImgMobile src="/contact-mobile.png" isActive={isActive} />
         </ContactImgContainer>
         <ContactForm
@@ -93,8 +92,7 @@ const MailSendIcon = styled.svg`
 
   ${mediaQueries("desktopS")`
     width: 15rem;
-  height: 10rem;
-  top: 34%;
+    top: 34%;
     
   `};
 
@@ -157,30 +155,16 @@ const ContactImgContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  width: 55rem;
   ${mediaQueries("desktopS")`
     width: 50rem
     
   `}
 `;
 
-const ContactImg = styled(motion.img)`
-  width: 100%;
-
-  ${mediaQueries("desktopS")`
-    display: none;
-  `}
-`;
-
 const ContactImgMobile = styled(motion.img)`
   max-width: 60rem;
   width: 100%;
-  display: none;
-
-  ${mediaQueries("desktopS")`
-    display: block;
-    
-  `};
   ${(props) =>
     props.isActive &&
     css`

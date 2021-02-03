@@ -127,7 +127,7 @@ const ButtonContainer = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 
   ${mediaQueries("desktopS")`
     margin-top: 1rem;
@@ -148,12 +148,12 @@ const SubmitButton = styled.svg`
 `;
 const ContactFormContainer = styled.div`
   position: absolute;
-  top: 26%;
+  top: 21%;
   width: 34rem;
   ${mediaQueries("desktopS")`
     top: 21%;
 
-    width: 30rem
+    width: 32rem
   `}
 
   ${mediaQueries("tabletS")`
@@ -196,7 +196,7 @@ const StyledInput = styled.input`
   width: 100%;
   border: 2px solid white;
   border-radius: 20px;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   color: white;
   padding: 1.5rem 1.5rem;
   &-webkit-autofill:focus {
