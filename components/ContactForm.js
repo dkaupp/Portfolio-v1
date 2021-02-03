@@ -137,6 +137,7 @@ const ButtonContainer = styled.div`
 const SubmitButton = styled.svg`
   transition: scale 0.1s ease;
   overflow: visible;
+  cursor: pointer;
 
   &:hover {
     & #path1 {

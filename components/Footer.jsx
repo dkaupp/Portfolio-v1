@@ -96,7 +96,6 @@ const Footer = () => {
 const FooterIcons = styled.svg`
   width: 9rem;
   overflow: visible;
-
   ${mediaQueries("mobileM")`
   width: 7rem;
   `}
@@ -105,6 +104,7 @@ const FooterIcons = styled.svg`
 const GitIcon = styled.g`
   transition: scale 0.1s ease;
   pointer-events: all;
+  cursor: pointer;
   &:hover {
     & #gpath {
       transform-origin: center;
@@ -116,6 +116,7 @@ const GitIcon = styled.g`
 const MailIcon = styled.g`
   transition: scale 0.1s ease;
   pointer-events: bounding-box;
+  cursor: pointer;
   &:hover {
     & #mpath1,
     #mpath2 {

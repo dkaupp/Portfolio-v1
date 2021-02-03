@@ -170,6 +170,7 @@ const StyledGitIcon = styled.svg`
   margin-right: 1rem;
   overflow: visible;
   width: 4rem;
+  cursor: pointer;
   ${mediaQueries("desktopS")`
     width: 3.5rem;
    `};
@@ -177,6 +178,7 @@ const StyledGitIcon = styled.svg`
 const StyledWebIcon = styled.svg`
   overflow: visible;
   width: 4rem;
+  cursor: pointer;
   ${mediaQueries("desktopS")`
     width: 3.5rem;
    `};

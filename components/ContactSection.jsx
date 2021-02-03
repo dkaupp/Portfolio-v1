@@ -108,7 +108,7 @@ const MailIcon = styled.svg`
   top: 33%;
   transition: scale 0.1s ease;
   overflow: visible;
-
+  cursor: pointer;
   &:hover {
     & #path1,
     & #path2 {
