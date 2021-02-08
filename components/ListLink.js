@@ -30,7 +30,7 @@ const ListLink = ({ href, title, onIsActive = null, color = "white" }) => {
 const StyledLi = styled.li`
   font-family: inherit;
   color: ${(props) => props.color && props.color};
-  font-weight: bold;
+  font-weight: 700;
   font-size: 1.8rem;
   list-style: none;
   margin: 3rem 0rem 3rem 3rem;

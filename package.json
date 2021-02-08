@@ -1,13 +1,13 @@
 {
-  "name": "arth-k-web",
+  "name": "dk-portfolio-v1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Personal Website",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dieter Kaupp <dieterkaupp@hotmail.com",
   "license": "ISC",
   "dependencies": {
     "@svgr/webpack": "^5.5.0",

@@ -12,6 +12,8 @@ const theme = {
     redux: "#FF43D6",
     bootstrap: "#FF43D6",
     react: "#63EEFC",
+    "react native": "#63EEFC",
+    next: "#63EEFC",
     figma: "#E35E55",
     html: "#E35E55",
     css: "#000FFF",
