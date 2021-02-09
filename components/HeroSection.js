@@ -20,7 +20,7 @@ const HeroSection = () => {
             layout="responsive"
             alt="dieter kaupp full stack web developer"
           /> */}
-          <svg
+          <StyledHeading
             width="957"
             height="186"
             viewBox="0 0 957 186"
@@ -402,7 +402,7 @@ const HeroSection = () => {
                 <rect width="957" height="186" fill="white" />
               </clipPath>
             </defs>
-          </svg>
+          </StyledHeading>
         </HeadingContainer>
       </Container>
       <MouseIconContainer>
@@ -411,6 +411,10 @@ const HeroSection = () => {
     </HeroSectionContainer>
   );
 };
+
+const StyledHeading = styled.svg`
+  width: 100%;
+`;
 
 const HeadingContainer = styled.div`
   width: 100%;

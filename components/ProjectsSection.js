@@ -143,7 +143,7 @@ const ProjectContainer = styled(motion.div)`
 `;
 
 const ProjectContainer1 = styled(ProjectContainer)`
-  transform: translateX(50rem);
+  transform: translateX(50vw);
   ${({ value }) =>
     value !== "about" || value !== "contact"
       ? css`
@@ -165,7 +165,7 @@ const ProjectContainer1 = styled(ProjectContainer)`
 `;
 
 const ProjectContainer2 = styled(ProjectContainer)`
-  transform: translateX(-50rem);
+  transform: translateX(-50vw);
   ${({ value }) =>
     value !== "about" || value === "contact"
       ? css`
@@ -192,7 +192,7 @@ const ProjectContainer2 = styled(ProjectContainer)`
 `;
 
 const ProjectContainer3 = styled(ProjectContainer)`
-  transform: translateX(50rem);
+  transform: translateX(50vw);
   ${({ value }) =>
     value !== "about" || value !== "contact"
       ? css`
