@@ -14,6 +14,8 @@ const projects = [
     description:
       "Mobile app for classified ad posting. The front end was created using React Native, Expo; and the back end with Node, Express and Mongoose.",
     badges: ["mongodb", "react native", "nodejs"],
+    hrefGit: "https://github.com/dkaupp/PassItOn",
+    hrefWeb: "https://expo.io/@arthk/projects/PassItOn",
   },
   {
     id: 2,
@@ -21,6 +23,8 @@ const projects = [
     description:
       "Bug logger app , with role base login . The front end was created using React/Redux; and back end with Node, Express and Mongoose.",
     badges: ["react", "mongodb", "redux", "nodejs"],
+    hrefGit: "https://github.com/dkaupp/logger-redux",
+    hrefWeb: "https://it-logger-front-end.herokuapp.com/",
   },
   {
     id: 3,
@@ -28,6 +32,8 @@ const projects = [
     description:
       "This website was created as my portfolio. I designed it using Figma; then built it with Next and NodeJs",
     badges: ["figma", "next", "nodejs"],
+    hrefGit: "https://github.com/dkaupp/Portfolio-v1",
+    hrefWeb: "",
   },
 ];
 
@@ -61,6 +67,8 @@ const ProjectsSection = () => {
             heading={projects[0].heading}
             description={projects[0].description}
             badges={projects[0].badges}
+            hrefGit={projects[0].hrefGit}
+            hrefWeb={projects[0].hrefWeb}
           />
           <Project source="/project1.png" altText="pass it on project" />
         </ProjectContainer1>
@@ -75,6 +83,8 @@ const ProjectsSection = () => {
             heading={projects[1].heading}
             description={projects[1].description}
             badges={projects[1].badges}
+            hrefGit={projects[1].hrefGit}
+            hrefWeb={projects[1].hrefWeb}
           />
         </ProjectContainer2>
         <ProjectContainer3 ref={ref3} inView3={inView3} value={value}>
@@ -86,6 +96,8 @@ const ProjectsSection = () => {
             heading={projects[2].heading}
             description={projects[2].description}
             badges={projects[2].badges}
+            hrefGit={projects[2].hrefGit}
+            hrefWeb={projects[2].hrefWeb}
           />
           <Project source="/project3.png" altText="porfolio website project" />
         </ProjectContainer3>

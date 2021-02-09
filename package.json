@@ -4,7 +4,10 @@
   "description": "Personal Website",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "start": "next start",
+    "dev": "nodemon server.js",
+    "build": "next build",
+    "export": "next export"
   },
   "keywords": [],
   "author": "Dieter Kaupp <dieterkaupp@hotmail.com",
@@ -15,9 +18,9 @@
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "framer-motion": "^3.1.1",
+    "framer-motion": "^3.3.0",
     "joi-browser": "^13.4.0",
-    "next": "^10.0.4",
+    "next": "^10.0.6",
     "nodemailer": "^6.4.17",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

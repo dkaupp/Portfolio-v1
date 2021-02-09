@@ -7,6 +7,11 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Dieter Kaupp | Portfolio</title>
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
         <meta
           name="description"
           content="Hello my name is Dieter Kaupp, I'm a full stack web developer and use different technologies to create responsive, powerful and fully custom websites/applications."

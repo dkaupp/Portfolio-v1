@@ -33,7 +33,7 @@ const ContactSection = () => {
             src="/contact-mobile.svg"
             isActive={isActive}
             alt="contact section form image"
-            height={892}
+            height={893}
             width={590}
           />
         </ContactImgContainer>
@@ -144,6 +144,7 @@ const ContactSectionContainer = styled.section`
   background-color: black;
   padding: 0rem 3rem 3rem;
   overflow: visible;
+  height: 90rem;
   ${mediaQueries("aboutMediaS")`
      padding: 0rem 1rem 1rem
   `}
@@ -168,8 +169,8 @@ const ContactImgContainer = styled.div`
   `}
 `;
 
-const ContactImgMobile = styled(motion.img)`
-  max-width: 60rem;
+const ContactImgMobile = styled.img`
+  /* max-width: 60rem; */
   width: 100%;
   ${(props) =>
     props.isActive &&
