@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled, { css } from "styled-components";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
@@ -6,8 +6,13 @@ import Image from "next/image";
 import { Para, Heading3 } from "../styles/typography";
 import { mediaQueries } from "../styles/mediaQueries.js";
 import Badge from "./Badge";
+import NavigationContext from "../context/navigation";
 
 const AboutSection = () => {
+  const { navigationValue: value } = useContext(NavigationContext);
+
+  console.log(value);
+
   const { ref, inView } = useInView({
     threshold: 0.4,
     triggerOnce: true,
@@ -15,7 +20,7 @@ const AboutSection = () => {
 
   return (
     <AboutSectionContainer ref={ref} id="about">
-      <AboutContainer inView={inView}>
+      <AboutContainer inView={inView} value={value}>
         <Container>
           <AboutTextContainer>
             <AboutH3>What I do : </AboutH3>
@@ -42,7 +47,7 @@ const AboutSection = () => {
           <AboutImageContainer>
             <AboutImg
               src="/about.svg"
-              alt="about section image"
+              alt="about section with and picture of dieter kaupp"
               width={1280}
               height={952}
               layout="responsive"
@@ -111,23 +116,23 @@ const AboutContainer = styled.div`
   will-change: transform;
   opacity: 0;
   transform: translateY(20rem);
-  ${({ value }) =>
-    value !== "contact"
+  ${(props) =>
+    props.value
       ? css`
-          transition: all 1s ease-out;
+          transition: all 0s;
+          transform: translateY(0rem);
         `
       : css`
-          transition: 0s;
-        `}
+          transition: all 1s ease-out;
+        `};
   ${(props) =>
     props.inView &&
     css`
       transform: translateY(0rem);
       opacity: 1;
     `}
-    ${mediaQueries("aboutMediaS")`
+  ${mediaQueries("aboutMediaS")`
      position: relative;
-    //  transition : opacity .5s ease;
     margin-top: 3rem;
   `}
 `;

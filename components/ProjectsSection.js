@@ -37,8 +37,6 @@ const projects = [
 ];
 
 const ProjectsSection = () => {
-  const { navigationValue: value } = useContext(NavigationContext);
-
   const [ref1, inView1] = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -57,7 +55,7 @@ const ProjectsSection = () => {
   return (
     <ProjectsSectionContainer>
       <ProjectsContainer id="work">
-        <ProjectContainer1 ref={ref1} inView1={inView1} value={value}>
+        <ProjectContainer1 ref={ref1} inView1={inView1}>
           <ProjectMobile
             source="/project1-mobile.png"
             altText="pass it on project"
@@ -71,7 +69,7 @@ const ProjectsSection = () => {
           />
           <Project source="/project1.png" altText="pass it on project" />
         </ProjectContainer1>
-        <ProjectContainer2 ref={ref2} inView2={inView2} value={value}>
+        <ProjectContainer2 ref={ref2} inView2={inView2}>
           <Project source="/project2.png" altText="bug logger app project" />
           <ProjectMobile
             source="/project2-mobile.png"
@@ -86,7 +84,7 @@ const ProjectsSection = () => {
             hrefWeb={projects[1].hrefWeb}
           />
         </ProjectContainer2>
-        <ProjectContainer3 ref={ref3} inView3={inView3} value={value}>
+        <ProjectContainer3 ref={ref3} inView3={inView3}>
           <ProjectMobile
             source="/project3-mobile.png"
             altText="porfolio website project"
@@ -139,18 +137,11 @@ const ProjectContainer = styled.div`
   opacity: 0;
   will-change: transform;
   width: 100%;
+  transition: all 1s ease-out;
 `;
 
 const ProjectContainer1 = styled(ProjectContainer)`
   transform: translateX(50vw);
-  ${({ value }) =>
-    value !== "about" || value !== "contact"
-      ? css`
-          transition: all 1s ease-out;
-        `
-      : css`
-          transition: 0s;
-        `};
   ${(props) =>
     props.inView1 &&
     css`
@@ -165,14 +156,6 @@ const ProjectContainer1 = styled(ProjectContainer)`
 
 const ProjectContainer2 = styled(ProjectContainer)`
   transform: translateX(-50vw);
-  ${({ value }) =>
-    value !== "about" || value === "contact"
-      ? css`
-          transition: all 1s ease-out;
-        `
-      : css`
-          transition: 0s;
-        `};
   ${(props) =>
     props.inView2 &&
     css`
@@ -192,14 +175,6 @@ const ProjectContainer2 = styled(ProjectContainer)`
 
 const ProjectContainer3 = styled(ProjectContainer)`
   transform: translateX(50vw);
-  ${({ value }) =>
-    value !== "about" || value !== "contact"
-      ? css`
-          transition: all 1s ease-out;
-        `
-      : css`
-          transition: 0s;
-        `};
   ${(props) =>
     props.inView3 &&
     css`
