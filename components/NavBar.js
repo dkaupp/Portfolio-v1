@@ -37,7 +37,7 @@ const StyledNav = styled.div`
   width: 100%;
   max-width: 128rem;
   padding: 0 3rem;
-
+  height: 8rem;
   ${mediaQueries("tabletL")`
     display: none ;
     

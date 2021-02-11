@@ -13,7 +13,6 @@ html {
 }
 body {
   font-family: "Roboto", sans-serif;
-  /* cursor: url("/cursor.svg"), auto; */
 }
 li {
   cursor: pointer;

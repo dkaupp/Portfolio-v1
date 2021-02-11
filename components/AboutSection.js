@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 import { Para, Heading3 } from "../styles/typography";
@@ -105,7 +104,7 @@ const AboutImg = styled(Image)``;
 
 const AboutImgMobile = styled(Image)``;
 
-const AboutContainer = styled(motion.div)`
+const AboutContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,7 +132,7 @@ const AboutContainer = styled(motion.div)`
   `}
 `;
 
-const AboutTextContainer = styled(motion.div)`
+const AboutTextContainer = styled.div`
   max-width: 50rem;
   color: white;
   margin-left: 3rem;

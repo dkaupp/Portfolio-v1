@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import styled, { css } from "styled-components";
-import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 import { ProjectDescription, Project, ProjectMobile } from ".";
@@ -106,7 +105,7 @@ const ProjectsSection = () => {
   );
 };
 
-const ProjectsSectionContainer = styled(motion.section)`
+const ProjectsSectionContainer = styled.section`
   padding: 3rem 3rem 0 3rem;
   background-color: black;
   overflow: hidden;
@@ -133,7 +132,7 @@ const ProjectsContainer = styled.div`
   max-width: 128rem;
 `;
 
-const ProjectContainer = styled(motion.div)`
+const ProjectContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

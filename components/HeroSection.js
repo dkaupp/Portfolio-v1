@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
-import Image from "next/image";
 
 import { NavBar, MouseIcon, NavBarMobile } from "./";
 import { mediaQueries } from "../styles/mediaQueries.js";
@@ -13,13 +11,6 @@ const HeroSection = () => {
       <NavBarMobile />
       <Container>
         <HeadingContainer>
-          {/* <Image
-            src="/neon-h1.svg"
-            width={957}
-            height={186}
-            layout="responsive"
-            alt="dieter kaupp full stack web developer"
-          /> */}
           <StyledHeading
             width="957"
             height="186"
@@ -423,7 +414,7 @@ const HeadingContainer = styled.div`
 
 const HeroSectionContainer = styled.section`
   height: 100vh;
-  min-height: 500px;
+  min-height: 600px;
   width: 100%;
   background-color: black;
   padding: 3rem;
@@ -441,7 +432,7 @@ const HeroSectionContainer = styled.section`
   `}
 `;
 
-const Container = styled(motion.div)`
+const Container = styled.div`
   margin-top: -20rem;
   display: flex;
   align-items: center;
@@ -449,7 +440,7 @@ const Container = styled(motion.div)`
   width: 100%;
 `;
 
-const MouseIconContainer = styled(motion.div)`
+const MouseIconContainer = styled.div`
   position: absolute;
   bottom: 1.5rem;
   width: 3.5rem;

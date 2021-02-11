@@ -6,7 +6,7 @@ export default async (req, res) => {
   let mailOptions = {
     from: process.env.EMAIL,
     to: process.env.EMAIL2,
-    subject: `Message from ${name} + ${email}`,
+    subject: `Message from ${name} <${email}>`,
     text: message,
   };
   try {

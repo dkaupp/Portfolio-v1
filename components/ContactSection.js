@@ -28,13 +28,13 @@ const ContactSection = () => {
         style={{ y: scrollAnimation || 0 }}
         transition={{ ease: "easeIn" }}
       >
-        <ContactImgContainer>
+        <ContactImgContainer isActive={isActive}>
           <ContactImgMobile
             src="/contact-mobile.svg"
-            isActive={isActive}
             alt="contact section form image"
             height={840}
             width={550}
+            layout="responsive"
           />
         </ContactImgContainer>
         <ContactForm
@@ -94,7 +94,7 @@ const MailSendIcon = styled.svg`
   position: absolute;
   width: 30rem;
   height: 10rem;
-  top: 38%;
+  top: 36%;
 
   ${mediaQueries("desktopS")`
     width: 15rem;
@@ -166,16 +166,16 @@ const ContactImgContainer = styled.div`
     width: 50rem
     
   `}
-`;
-
-const ContactImgMobile = styled(motion.img)`
-  width: 100%;
-  height: 100%;
   ${(props) =>
     props.isActive &&
     css`
       display: none !important;
     `}
+`;
+
+const ContactImgMobile = styled.img`
+  height: auto;
+  width: 100%;
 `;
 
 export default ContactSection;
