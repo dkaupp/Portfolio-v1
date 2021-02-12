@@ -34,7 +34,6 @@ const ContactSection = () => {
             alt="contact section form image"
             height={840}
             width={550}
-            layout="responsive"
           />
         </ContactImgContainer>
         <ContactForm
