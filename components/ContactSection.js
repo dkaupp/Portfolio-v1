@@ -145,7 +145,16 @@ const ContactSectionContainer = styled.section`
   padding: 0rem 3rem 3rem;
   overflow: visible;
   ${mediaQueries("aboutMediaS")`
+     padding: 0rem 2rem 1rem
+  `}
+  ${mediaQueries("mobileM")`
      padding: 0rem 1rem 1rem
+  `}
+  ${mediaQueries("mobileM")`
+     padding: 0rem 1rem 1rem
+  `}
+  ${mediaQueries("mobileR")`
+     padding: 0rem .5rem 1rem
   `}
 `;
 const ContactContainer = styled(motion.div)`

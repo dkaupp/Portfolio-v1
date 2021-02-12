@@ -11,8 +11,6 @@ import NavigationContext from "../context/navigation";
 const AboutSection = () => {
   const { navigationValue: value } = useContext(NavigationContext);
 
-  console.log(value);
-
   const { ref, inView } = useInView({
     threshold: 0.4,
     triggerOnce: true,

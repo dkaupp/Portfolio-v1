@@ -10,8 +10,8 @@ const Project = ({ source, altText }) => {
       <StyledProject
         src={source}
         alt={altText}
-        width={800}
-        height={620}
+        width={1600}
+        height={1240}
         layout="responsive"
       />
     </ProjectImageContainer>
@@ -20,7 +20,7 @@ const Project = ({ source, altText }) => {
 
 const ProjectImageContainer = styled.div`
   width: 100%;
-  max-width: 60%;
+  max-width: 768px;
   padding-top: 2rem;
   ${mediaQueries("aboutMediaS")`
     display:none;
