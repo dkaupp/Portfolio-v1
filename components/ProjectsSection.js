@@ -1,40 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 import { useInView } from "react-intersection-observer";
 
 import { ProjectDescription, Project, ProjectMobile } from ".";
-import NavigationContext from "../context/navigation";
 import { mediaQueries } from "../styles/mediaQueries";
-
-const projects = [
-  {
-    id: 1,
-    heading: "Pass It On",
-    description:
-      "Mobile app for classified ad posting. The front end was created using React Native, Expo; and the back end with Node, Express and Mongoose.",
-    badges: ["mongodb", "react native", "nodejs"],
-    hrefGit: "https://github.com/dkaupp/PassItOn",
-    hrefWeb: "https://expo.io/@arthk/projects/PassItOn",
-  },
-  {
-    id: 2,
-    heading: "Bug Logger App",
-    description:
-      "Bug logger app , with role base login . The front end was created using React/Redux; and back end with Node, Express and Mongoose.",
-    badges: ["react", "mongodb", "redux", "nodejs"],
-    hrefGit: "https://github.com/dkaupp/logger-redux",
-    hrefWeb: "https://it-logger-front-end.herokuapp.com/",
-  },
-  {
-    id: 3,
-    heading: "Portfolio",
-    description:
-      "This website was created as my portfolio. I designed it using Figma; then built it with Next and NodeJs",
-    badges: ["figma", "next", "nodejs"],
-    hrefGit: "https://github.com/dkaupp/Portfolio-v1",
-    hrefWeb: "",
-  },
-];
 
 const ProjectsSection = () => {
   const [ref1, inView1] = useInView({
@@ -52,52 +21,83 @@ const ProjectsSection = () => {
     triggerOnce: true,
   });
 
+  const projects = [
+    {
+      id: 1,
+      heading: "Pass It On",
+      description:
+        "Mobile app for classified ad posting. The front end was created using React Native, Expo; and the back end with Node, Express and Mongoose.",
+      badges: ["mongodb", "react native", "nodejs"],
+      hrefGit: "https://github.com/dkaupp/PassItOn",
+      hrefWeb: "https://expo.io/@arthk/projects/PassItOn",
+      ref: ref1,
+      inView: inView1,
+      source: "/project1.png",
+      sourcemobile: "/project1-mobile.png",
+      altText: "pass it on project",
+      animationValue: "translateX(50vw)",
+      direction: "",
+    },
+    {
+      id: 2,
+      heading: "Bug Logger App",
+      description:
+        "Bug logger app , with role base login . The front end was created using React/Redux; and back end with Node, Express and Mongoose.",
+      badges: ["react", "mongodb", "redux", "nodejs"],
+      hrefGit: "https://github.com/dkaupp/logger-redux",
+      hrefWeb: "https://it-logger-front-end.herokuapp.com/",
+      ref: ref2,
+      inView: inView2,
+      source: "/project2.png",
+      sourcemobile: "/project2-mobile.png",
+      altText: "bug logger app project",
+      animationValue: "translateX(-50vw)",
+      direction: "left",
+    },
+    {
+      id: 3,
+      heading: "Portfolio",
+      description:
+        "This website was created as my portfolio. I designed it using Figma; then built it with Next and NodeJs",
+      badges: ["figma", "next", "nodejs"],
+      hrefGit: "https://github.com/dkaupp/Portfolio-v1",
+      hrefWeb: "",
+      ref: ref3,
+      inView: inView3,
+      source: "/project3.png",
+      sourcemobile: "/project3-mobile.png",
+      altText: "porfolio website project",
+      animationValue: "translateX(50vw)",
+      direction: "",
+    },
+  ];
+
   return (
     <ProjectsSectionContainer>
       <ProjectsContainer id="work">
-        <ProjectContainer1 ref={ref1} inView1={inView1}>
-          <ProjectMobile
-            source="/project1-mobile.png"
-            altText="pass it on project"
-          />
-          <ProjectDescription
-            heading={projects[0].heading}
-            description={projects[0].description}
-            badges={projects[0].badges}
-            hrefGit={projects[0].hrefGit}
-            hrefWeb={projects[0].hrefWeb}
-          />
-          <Project source="/project1.png" altText="pass it on project" />
-        </ProjectContainer1>
-        <ProjectContainer2 ref={ref2} inView2={inView2}>
-          <Project source="/project2.png" altText="bug logger app project" />
-          <ProjectMobile
-            source="/project2-mobile.png"
-            altText="bug logger app project"
-          />
-          <ProjectDescription
-            direction={"left"}
-            heading={projects[1].heading}
-            description={projects[1].description}
-            badges={projects[1].badges}
-            hrefGit={projects[1].hrefGit}
-            hrefWeb={projects[1].hrefWeb}
-          />
-        </ProjectContainer2>
-        <ProjectContainer3 ref={ref3} inView3={inView3}>
-          <ProjectMobile
-            source="/project3-mobile.png"
-            altText="porfolio website project"
-          />
-          <ProjectDescription
-            heading={projects[2].heading}
-            description={projects[2].description}
-            badges={projects[2].badges}
-            hrefGit={projects[2].hrefGit}
-            hrefWeb={projects[2].hrefWeb}
-          />
-          <Project source="/project3.png" altText="porfolio website project" />
-        </ProjectContainer3>
+        {projects.map((project) => (
+          <ProjectContainer
+            ref={project.ref}
+            inView={project.inView}
+            animationValue={project.animationValue}
+            key={project.id}
+            direction={project.direction}
+          >
+            <ProjectMobile
+              source={project.sourcemobile}
+              altText={project.altText}
+            />
+            <ProjectDescription
+              heading={project.heading}
+              description={project.description}
+              badges={project.badges}
+              hrefGit={project.hrefGit}
+              hrefWeb={project.hrefWeb}
+              direction={project.direction}
+            />
+            <Project source={project.source} altText={project.altText} />
+          </ProjectContainer>
+        ))}
       </ProjectsContainer>
     </ProjectsSectionContainer>
   );
@@ -138,45 +138,14 @@ const ProjectContainer = styled.div`
   will-change: transform;
   width: 100%;
   transition: all 1s ease-out;
-`;
-
-const ProjectContainer1 = styled(ProjectContainer)`
-  transform: translateX(50vw);
+  transform: ${(props) => props.animationValue && props.animationValue};
   ${(props) =>
-    props.inView1 &&
+    props.direction === "left" &&
     css`
-      transform: translateX(0);
-      opacity: 1;
-    `};
-  ${mediaQueries("aboutMediaS")`
-    width: 100%;
-    padding: 1rem;
-  `}
-`;
-
-const ProjectContainer2 = styled(ProjectContainer)`
-  transform: translateX(-50vw);
+      flex-direction: row-reverse;
+    `}
   ${(props) =>
-    props.inView2 &&
-    css`
-      transform: translateX(0);
-      opacity: 1;
-    `};
-  ${mediaQueries("aboutMediaS")`
-    width: 100%;
-    padding: 1rem;
-  `}
-
-  ${mediaQueries("aboutMediaS")`
-    padding: 1rem;
-    width: 100%;
-  `}
-`;
-
-const ProjectContainer3 = styled(ProjectContainer)`
-  transform: translateX(50vw);
-  ${(props) =>
-    props.inView3 &&
+    props.inView &&
     css`
       transform: translateX(0);
       opacity: 1;
