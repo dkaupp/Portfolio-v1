@@ -13,7 +13,6 @@
   "author": "Dieter Kaupp <dieterkaupp@hotmail.com",
   "license": "ISC",
   "dependencies": {
-    "@svgr/webpack": "^5.5.0",
     "apisauce": "^2.0.1",
     "dotenv": "^8.2.0",
     "framer-motion": "^3.3.0",

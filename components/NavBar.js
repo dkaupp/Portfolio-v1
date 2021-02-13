@@ -46,7 +46,7 @@ const StyledNav = styled.div`
 const StyledUl = styled.ul`
   display: flex;
   justify-content: flex-end;
-  height: 100%;
+  width: 100%;
   height: auto;
 `;
 

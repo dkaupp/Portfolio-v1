@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import styled, { css } from "styled-components";
+import Image from "next/image";
 
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { mediaQueries } from "../styles/mediaQueries.js";
@@ -29,11 +30,12 @@ const ContactSection = () => {
         transition={{ ease: "easeIn" }}
       >
         <ContactImgContainer isActive={isActive}>
-          <ContactImgMobile
-            src="/contact-mobile.svg"
+          <Image
+            src="/contact.svg"
             alt="contact section form image"
-            height={840}
             width={550}
+            height={840}
+            layout="responsive"
           />
         </ContactImgContainer>
         <ContactForm
@@ -143,6 +145,7 @@ const ContactSectionContainer = styled.section`
   background-color: black;
   padding: 0rem 3rem 3rem;
   overflow: visible;
+  width: 100%;
   ${mediaQueries("aboutMediaS")`
      padding: 0rem 2rem 1rem
   `}
@@ -163,13 +166,20 @@ const ContactContainer = styled(motion.div)`
   will-change: transform;
   position: relative;
   min-height: 60rem;
+  width: 100%;
+  height: auto;
 `;
 
 const ContactImgContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 55rem;
+  width: 100%;
+  max-width: 55rem;
+  & div {
+    width: 100%;
+    height: 100%;
+  }
   ${mediaQueries("desktopS")`
     width: 50rem
     
@@ -179,11 +189,6 @@ const ContactImgContainer = styled.div`
     css`
       display: none !important;
     `}
-`;
-
-const ContactImgMobile = styled.img`
-  height: auto;
-  width: 100%;
 `;
 
 export default ContactSection;
