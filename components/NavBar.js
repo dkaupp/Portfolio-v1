@@ -47,6 +47,7 @@ const StyledUl = styled.ul`
   display: flex;
   justify-content: flex-end;
   height: 100%;
+  height: auto;
 `;
 
 export default NavBar;

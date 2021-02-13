@@ -7,11 +7,11 @@ import { mediaQueries } from "../styles/mediaQueries.js";
 const ProjectMobile = ({ source, altText }) => {
   return (
     <ProjectMobileImageContainer>
-      <StyledProjectMobile
+      <Image
         src={source}
         alt={altText}
-        width={650}
-        height={780}
+        width={1140}
+        height={1320}
         layout="responsive"
       />
     </ProjectMobileImageContainer>
@@ -26,7 +26,5 @@ const ProjectMobileImageContainer = styled.div`
     display:block;
   `};
 `;
-
-const StyledProjectMobile = styled(Image)``;
 
 export default ProjectMobile;

@@ -7,7 +7,8 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Dieter Kaupp | Portfolio</title>
-        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta charSet="utf-8" />
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
           rel="stylesheet"
@@ -20,7 +21,6 @@ function MyApp({ Component, pageProps }) {
           name="keywords"
           content="kaupp porfolio, kaupp developer, kaupp web developer, kaupp javascript"
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <NavigationContextProvider>
         <Component {...pageProps} />
