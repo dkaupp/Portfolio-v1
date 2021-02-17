@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import Logo from "../assets/Logo.js";
 import NavigationContext from "../context/navigation.js";
 
 import { mediaQueries } from "../styles/mediaQueries.js";
@@ -16,6 +17,7 @@ const NavBar = () => {
   const { handleNavigation } = useContext(NavigationContext);
   return (
     <StyledNav>
+      <Logo />
       <StyledUl>
         {links.map((link) => (
           <ListLink
@@ -38,6 +40,9 @@ const StyledNav = styled.div`
   max-width: 128rem;
   padding: 0 3rem;
   height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   ${mediaQueries("tabletL")`
     display: none ;
     
