@@ -19,8 +19,8 @@ const StyledMenuButton = styled(motion.div)`
   `}
   ${mediaQueries("mobileM")`
     display: block ;
-    right: 1.5rem;
-    top: 1.5rem; 
+    right: 1rem;
+    top: 1rem; 
   `}
 `;
 
@@ -31,7 +31,6 @@ const MenuButtonContainer = styled(motion.svg)`
 `;
 
 const StyledNavBar = styled.div`
-  /* background-color: black; */
   width: 100%;
   height: 6.5rem;
   position: fixed;

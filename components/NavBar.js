@@ -4,6 +4,7 @@ import Logo from "../assets/Logo.js";
 import NavigationContext from "../context/navigation.js";
 
 import { mediaQueries } from "../styles/mediaQueries.js";
+import theme from "../styles/theme.js";
 
 import ListLink from "./ListLink.js";
 
@@ -39,7 +40,7 @@ const StyledNav = styled.div`
   width: 100%;
   max-width: 128rem;
   padding: 0 3rem;
-  height: 8rem;
+  height: 7rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,8 +52,25 @@ const StyledNav = styled.div`
 const StyledUl = styled.ul`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   width: 100%;
   height: auto;
+  & li:last-child {
+    color: ${theme.colors.white};
+    border: 2px solid ${theme.colors.white};
+    padding: 5px;
+    box-shadow: 0 0 5px ${theme.colors.white} inset,
+      0 0 5px ${theme.colors.white};
+    border-radius: 4px;
+    text-shadow: 0 0 10px ${theme.colors.white};
+    :hover {
+      border: 2px solid ${theme.colors.yellow};
+      box-shadow: 0 0 5px ${theme.colors.yellow} inset,
+        0 0 5px ${theme.colors.yellow};
+      color: ${theme.colors.yellow};
+      text-shadow: 0 0 10px ${theme.colors.yellow};
+    }
+  }
 `;
 
 export default NavBar;
