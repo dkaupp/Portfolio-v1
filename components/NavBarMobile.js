@@ -5,23 +5,132 @@ import { motion } from "framer-motion";
 import { mediaQueries } from "../styles/mediaQueries";
 import ListLink from "./ListLink.js";
 import theme from "../styles/theme";
+import useScroll from "../hooks/useScroll";
+import Logo from "../assets/Logo";
+
+const LogoContainer = styled.div`
+  width: 12rem;
+  padding-left: 1rem;
+`;
+
+const NavBarMobile = () => {
+  const { visible: isVisible } = useScroll();
+  const [isActive, setIsActive] = useState(false);
+
+  const handleIsActive = () => setIsActive(false);
+
+  return (
+    <>
+      <StyledNavBar isActive={isActive} isVisible={isVisible}>
+        <LogoContainer>
+          <Logo />
+        </LogoContainer>
+      </StyledNavBar>
+      <StyledMenuButton
+        onClick={() => setIsActive(!isActive)}
+        isVisible={isActive ? true : isVisible}
+      >
+        <MenuButtonContainer
+          width="66"
+          height="66"
+          viewBox="0 0 66 66"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="menu">
+            <StyledCircle
+              isActive={isActive}
+              id="Ellipse 80"
+              cx="33"
+              cy="33"
+              r="32"
+              stroke="white"
+              strokeWidth="3"
+            />
+            <TopLine
+              id="line3"
+              x1="15"
+              y1="21"
+              x2="51"
+              y2="21"
+              stroke="white"
+              strokeWidth="3"
+              strokeLinecap="round"
+              isActive={isActive}
+            />
+            <CenterLine
+              id="line2"
+              x1="15"
+              y1="33"
+              x2="51"
+              y2="33"
+              stroke="white"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              isActive={isActive}
+            />
+            <BottomLine
+              id="line1"
+              x1="15"
+              y1="45"
+              x2="51"
+              y2="45"
+              stroke="white"
+              strokeWidth="3"
+              strokeLinecap="round"
+              isActive={isActive}
+            />
+          </g>
+        </MenuButtonContainer>
+      </StyledMenuButton>
+      <SlidingMenu isActive={isActive}>
+        <StyledUl>
+          {links.map((link) => (
+            <ListLink
+              color="black"
+              key={link.id}
+              href={link.href}
+              title={link.title}
+              onIsActive={handleIsActive}
+            />
+          ))}
+        </StyledUl>
+      </SlidingMenu>
+    </>
+  );
+};
 
 const StyledMenuButton = styled(motion.div)`
   margin-left: auto;
   position: fixed;
-  right: 3rem;
+  right: 1rem;
   display: none;
   z-index: 4;
-  ${mediaQueries("tabletL")`
+
+  transition: top 0.5s ease;
+  ${(props) =>
+    props.isVisible
+      ? css`
+          top: 1rem;
+        `
+      : css`
+          top: -6.5rem;
+        `}
+  ${(props) =>
+    props.isActive &&
+    css`
+      top: 1;
+    `}
+    ${mediaQueries("tabletL")`
     display: block ;
-    right: 2rem;
-    top: 2rem; 
-  `}
+   
+  `};
+
   ${mediaQueries("mobileM")`
     display: block ;
-    right: 1rem;
-    top: 1rem; 
-  `}
+    
+  `};
 `;
 
 const MenuButtonContainer = styled(motion.svg)`
@@ -35,12 +144,25 @@ const StyledNavBar = styled.div`
   height: 6.5rem;
   position: fixed;
   top: 0;
+  background-color: black;
   display: none;
   z-index: 3;
   transition: opacity 0.4s ease-out;
   overflow: visible;
+
+  transition: top 0.5s ease;
+  ${(props) =>
+    props.isVisible
+      ? css`
+          top: 0rem;
+        `
+      : css`
+          top: -6.5rem;
+        `}
+
   ${mediaQueries("tabletL")`
-    display: block ;
+    display: flex ;
+    align-items: center;
   `}
   ${(props) =>
     props.isActive &&
@@ -131,85 +253,5 @@ const links = [
   { id: 2, title: "work", href: "#work" },
   { id: 3, title: "contact", href: "#contact" },
 ];
-
-const NavBarMobile = () => {
-  const [isActive, setIsActive] = useState(false);
-
-  const handleIsActive = () => setIsActive(false);
-
-  return (
-    <>
-      <StyledNavBar isActive={isActive} />
-      <StyledMenuButton onClick={() => setIsActive(!isActive)}>
-        <MenuButtonContainer
-          width="66"
-          height="66"
-          viewBox="0 0 66 66"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g id="menu">
-            <StyledCircle
-              isActive={isActive}
-              id="Ellipse 80"
-              cx="33"
-              cy="33"
-              r="32"
-              stroke="white"
-              strokeWidth="3"
-            />
-            <TopLine
-              id="line3"
-              x1="15"
-              y1="21"
-              x2="51"
-              y2="21"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              isActive={isActive}
-            />
-            <CenterLine
-              id="line2"
-              x1="15"
-              y1="33"
-              x2="51"
-              y2="33"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              isActive={isActive}
-            />
-            <BottomLine
-              id="line1"
-              x1="15"
-              y1="45"
-              x2="51"
-              y2="45"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              isActive={isActive}
-            />
-          </g>
-        </MenuButtonContainer>
-      </StyledMenuButton>
-      <SlidingMenu isActive={isActive}>
-        <StyledUl>
-          {links.map((link) => (
-            <ListLink
-              color="black"
-              key={link.id}
-              href={link.href}
-              title={link.title}
-              onIsActive={handleIsActive}
-            />
-          ))}
-        </StyledUl>
-      </SlidingMenu>
-    </>
-  );
-};
 
 export default NavBarMobile;
