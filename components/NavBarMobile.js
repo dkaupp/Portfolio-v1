@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
-import { motion } from "framer-motion";
 
 import { mediaQueries } from "../styles/mediaQueries";
-import ListLink from "./ListLink.js";
 import theme from "../styles/theme";
 import useScroll from "../hooks/useScroll";
+
+import { ListLink } from "./";
 import Logo from "../assets/Logo";
 
-const LogoContainer = styled.div`
-  width: 12rem;
-  padding-left: 1rem;
-`;
+const links = [
+  { id: 1, title: "about", href: "#about" },
+  { id: 2, title: "work", href: "#work" },
+  { id: 3, title: "contact", href: "#contact" },
+];
 
 const NavBarMobile = () => {
   const { visible: isVisible } = useScroll();
@@ -101,7 +102,74 @@ const NavBarMobile = () => {
   );
 };
 
-const StyledMenuButton = styled(motion.div)`
+const BottomLine = styled.line`
+  transform-origin: 33px 45px;
+
+  transition: all 0.2s linear;
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      transform: translateY(-11px) rotate(-45deg);
+      stroke: black;
+    `}
+`;
+
+const CenterLine = styled.line`
+  transition: all 0.2s linear;
+  transition-delay: 0.1s;
+  ${(props) =>
+    props.isActive &&
+    css`
+      transition-delay: 0s;
+      opacity: 0;
+    `}
+`;
+
+const LogoContainer = styled.div`
+  width: 12rem;
+  padding-left: 1rem;
+`;
+
+const MenuButtonContainer = styled.svg`
+  width: 4.5rem;
+  height: 4.5rem;
+  overflow: visible;
+`;
+
+const SlidingMenu = styled.div`
+  position: fixed;
+  background-color: ${theme.colors.react};
+  height: 110%;
+  min-height: 500px;
+  width: 60%;
+  z-index: 3;
+  right: 0;
+  display: none;
+  will-change: transform;
+  transform: translateX(100%);
+  transition: transform 0.3s linear;
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      transform: translateX(0);
+    `}
+
+  ${mediaQueries("tabletL")`
+    display: block ;
+  `}
+`;
+
+const StyledCircle = styled.circle`
+  ${(props) =>
+    props.isActive &&
+    css`
+      stroke: black;
+    `}
+`;
+
+const StyledMenuButton = styled.div`
   margin-left: auto;
   position: fixed;
   right: 1rem;
@@ -131,12 +199,6 @@ const StyledMenuButton = styled(motion.div)`
     display: block ;
     
   `};
-`;
-
-const MenuButtonContainer = styled(motion.svg)`
-  width: 4.5rem;
-  height: 4.5rem;
-  overflow: visible;
 `;
 
 const StyledNavBar = styled.div`
@@ -177,43 +239,6 @@ const StyledUl = styled.ul`
   height: 100%;
 `;
 
-const SlidingMenu = styled.div`
-  position: fixed;
-  background-color: ${theme.colors.react};
-  height: 110%;
-  min-height: 500px;
-  width: 60%;
-  z-index: 3;
-  right: 0;
-  display: none;
-  will-change: transform;
-  transform: translateX(100%);
-  transition: transform 0.3s linear;
-
-  ${(props) =>
-    props.isActive &&
-    css`
-      transform: translateX(0);
-    `}
-
-  ${mediaQueries("tabletL")`
-    display: block ;
-  `}
-`;
-
-const BottomLine = styled.line`
-  transform-origin: 33px 45px;
-
-  transition: all 0.2s linear;
-
-  ${(props) =>
-    props.isActive &&
-    css`
-      transform: translateY(-11px) rotate(-45deg);
-      stroke: black;
-    `}
-`;
-
 const TopLine = styled.line`
   transform-origin: 33px 21px;
 
@@ -226,30 +251,5 @@ const TopLine = styled.line`
       stroke: black;
     `}
 `;
-
-const CenterLine = styled.line`
-  transition: all 0.2s linear;
-  transition-delay: 0.1s;
-  ${(props) =>
-    props.isActive &&
-    css`
-      transition-delay: 0s;
-      opacity: 0;
-    `}
-`;
-
-const StyledCircle = styled.circle`
-  ${(props) =>
-    props.isActive &&
-    css`
-      stroke: black;
-    `}
-`;
-
-const links = [
-  { id: 1, title: "about", href: "#about" },
-  { id: 2, title: "work", href: "#work" },
-  { id: 3, title: "contact", href: "#contact" },
-];
 
 export default NavBarMobile;
