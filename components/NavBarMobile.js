@@ -147,10 +147,8 @@ const StyledNavBar = styled.div`
   background-color: black;
   display: none;
   z-index: 3;
-  transition: opacity 0.4s ease-out;
+  transition: all 0.5s ease-out;
   overflow: visible;
-
-  transition: top 0.5s ease;
   ${(props) =>
     props.isVisible
       ? css`

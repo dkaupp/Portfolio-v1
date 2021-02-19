@@ -57,7 +57,7 @@ const Container = styled.div`
 
 const MouseIconContainer = styled.div`
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 0.5rem;
   width: 3.5rem;
 
   ${mediaQueries("desktopS")`
