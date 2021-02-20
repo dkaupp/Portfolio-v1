@@ -5,23 +5,6 @@ import { NavBar, MouseIcon, NavBarMobile } from "./";
 import { mediaQueries } from "../styles/mediaQueries.js";
 import Heading from "../assets/Heading";
 
-const HeroSection = () => {
-  return (
-    <HeroSectionContainer>
-      <NavBar />
-      <NavBarMobile />
-      <Container>
-        <HeadingContainer>
-          <Heading />
-        </HeadingContainer>
-      </Container>
-      <MouseIconContainer>
-        <MouseIcon />
-      </MouseIconContainer>
-    </HeroSectionContainer>
-  );
-};
-
 const HeadingContainer = styled.div`
   width: 100%;
   max-width: 100rem;
@@ -69,5 +52,22 @@ const MouseIconContainer = styled.div`
     bottom : 0;
   `};
 `;
+
+const HeroSection = () => {
+  return (
+    <HeroSectionContainer>
+      <NavBar />
+      <NavBarMobile />
+      <Container>
+        <HeadingContainer>
+          <Heading />
+        </HeadingContainer>
+      </Container>
+      <MouseIconContainer>
+        <MouseIcon />
+      </MouseIconContainer>
+    </HeroSectionContainer>
+  );
+};
 
 export default HeroSection;

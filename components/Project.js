@@ -4,6 +4,15 @@ import Image from "next/image";
 
 import { mediaQueries } from "../styles/mediaQueries.js";
 
+const ProjectImageContainer = styled.div`
+  width: 100%;
+  max-width: 768px;
+  padding-top: 2rem;
+  ${mediaQueries("aboutMediaS")`
+    display:none;
+  `}
+`;
+
 const Project = ({ source, altText }) => {
   return (
     <ProjectImageContainer>
@@ -17,14 +26,5 @@ const Project = ({ source, altText }) => {
     </ProjectImageContainer>
   );
 };
-
-const ProjectImageContainer = styled.div`
-  width: 100%;
-  max-width: 768px;
-  padding-top: 2rem;
-  ${mediaQueries("aboutMediaS")`
-    display:none;
-  `}
-`;
 
 export default Project;

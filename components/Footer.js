@@ -4,6 +4,51 @@ import Link from "next/link";
 import { mediaQueries } from "../styles/mediaQueries";
 import theme from "../styles/theme";
 
+const FooterIcons = styled.svg`
+  width: 9rem;
+  overflow: visible;
+  ${mediaQueries("mobileM")`
+  width: 7rem;
+  `}
+`;
+
+const GitIcon = styled.g`
+  transition: scale 0.1s ease;
+  pointer-events: all;
+  cursor: pointer;
+  &:hover {
+    & #gpath {
+      transform-origin: center;
+      stroke: ${theme.colors.yellow};
+      transform: scale(1.05);
+    }
+  }
+`;
+const MailIcon = styled.g`
+  transition: scale 0.1s ease;
+  pointer-events: bounding-box;
+  cursor: pointer;
+  &:hover {
+    & #mpath1,
+    #mpath2 {
+      transform-origin: center;
+      stroke: ${theme.colors.yellow};
+      transform: scale(1.05);
+    }
+  }
+`;
+
+const FooterContactContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+`;
+
+const FooterSection = styled.section`
+  padding: 3rem 3rem;
+  background-color: black;
+`;
+
 const Footer = () => {
   return (
     <FooterSection>
@@ -96,50 +141,5 @@ const Footer = () => {
     </FooterSection>
   );
 };
-
-const FooterIcons = styled.svg`
-  width: 9rem;
-  overflow: visible;
-  ${mediaQueries("mobileM")`
-  width: 7rem;
-  `}
-`;
-
-const GitIcon = styled.g`
-  transition: scale 0.1s ease;
-  pointer-events: all;
-  cursor: pointer;
-  &:hover {
-    & #gpath {
-      transform-origin: center;
-      stroke: ${theme.colors.yellow};
-      transform: scale(1.05);
-    }
-  }
-`;
-const MailIcon = styled.g`
-  transition: scale 0.1s ease;
-  pointer-events: bounding-box;
-  cursor: pointer;
-  &:hover {
-    & #mpath1,
-    #mpath2 {
-      transform-origin: center;
-      stroke: ${theme.colors.yellow};
-      transform: scale(1.05);
-    }
-  }
-`;
-
-const FooterContactContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-`;
-
-const FooterSection = styled.section`
-  padding: 3rem 3rem;
-  background-color: black;
-`;
 
 export default Footer;

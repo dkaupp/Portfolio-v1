@@ -4,14 +4,6 @@ import styled, { css } from "styled-components";
 import theme from "../styles/theme";
 import { mediaQueries } from "../styles/mediaQueries.js";
 
-const Badge = ({ name, direction }) => {
-  return (
-    <BadgeContainer direction={direction} color={theme.colors[name]}>
-      {name}
-    </BadgeContainer>
-  );
-};
-
 const BadgeContainer = styled.div`
   ${({ color }) =>
     color &&
@@ -40,5 +32,13 @@ const BadgeContainer = styled.div`
     margin-bottom : .3rem
   `}
 `;
+
+const Badge = ({ name, direction }) => {
+  return (
+    <BadgeContainer direction={direction} color={theme.colors[name]}>
+      {name}
+    </BadgeContainer>
+  );
+};
 
 export default Badge;

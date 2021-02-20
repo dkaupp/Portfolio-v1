@@ -5,6 +5,59 @@ import { useInView } from "react-intersection-observer";
 import { ProjectDescription, Project, ProjectMobile } from ".";
 import { mediaQueries } from "../styles/mediaQueries";
 
+const ProjectsSectionContainer = styled.section`
+  padding: 3rem 3rem 0 3rem;
+  background-color: black;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${mediaQueries("aboutMedia")`
+     padding: 3rem 2rem 0 2rem
+  `}
+  ${mediaQueries("aboutMediaS")`
+     padding: 3rem 1rem 0 1rem
+  `}
+   ${mediaQueries("mobileM")`
+     padding : 2rem 0;
+  `}
+   ${mediaQueries("mobileM")`
+     padding : 0;
+  `}
+`;
+const ProjectsContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  max-width: 128rem;
+`;
+
+const ProjectContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  will-change: transform;
+  width: 100%;
+  transition: all 1s ease-out;
+  transform: ${(props) => props.animationValue && props.animationValue};
+  ${(props) =>
+    props.direction === "left" &&
+    css`
+      flex-direction: row-reverse;
+    `}
+  ${(props) =>
+    props.inView &&
+    css`
+      transform: translateX(0);
+      opacity: 1;
+    `};
+  ${mediaQueries("aboutMediaS")`
+    width: 100%;
+    padding: 1rem;
+  `}
+`;
+
 const ProjectsSection = () => {
   const [ref1, inView1] = useInView({
     threshold: 0.2,
@@ -102,58 +155,5 @@ const ProjectsSection = () => {
     </ProjectsSectionContainer>
   );
 };
-
-const ProjectsSectionContainer = styled.section`
-  padding: 3rem 3rem 0 3rem;
-  background-color: black;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  ${mediaQueries("aboutMedia")`
-     padding: 3rem 2rem 0 2rem
-  `}
-  ${mediaQueries("aboutMediaS")`
-     padding: 3rem 1rem 0 1rem
-  `}
-   ${mediaQueries("mobileM")`
-     padding : 2rem 0;
-  `}
-   ${mediaQueries("mobileM")`
-     padding : 0;
-  `}
-`;
-const ProjectsContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  max-width: 128rem;
-`;
-
-const ProjectContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  will-change: transform;
-  width: 100%;
-  transition: all 1s ease-out;
-  transform: ${(props) => props.animationValue && props.animationValue};
-  ${(props) =>
-    props.direction === "left" &&
-    css`
-      flex-direction: row-reverse;
-    `}
-  ${(props) =>
-    props.inView &&
-    css`
-      transform: translateX(0);
-      opacity: 1;
-    `};
-  ${mediaQueries("aboutMediaS")`
-    width: 100%;
-    padding: 1rem;
-  `}
-`;
 
 export default ProjectsSection;

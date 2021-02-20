@@ -1,13 +1,114 @@
 import React, { useState, useContext } from "react";
 import styled, { css } from "styled-components";
 import Image from "next/image";
-
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import { mediaQueries } from "../styles/mediaQueries.js";
 
 import theme from "../styles/theme";
 import ContactForm from "./ContactForm";
 import NavigationContext from "../context/navigation";
+
+const MailIcon = styled.svg`
+  display: none;
+  position: absolute;
+  width: 10rem;
+  top: 33%;
+  transition: scale 0.1s ease;
+  overflow: visible;
+  cursor: pointer;
+  &:hover {
+    & #path1,
+    & #path2 {
+      stroke: ${theme.colors.yellow};
+      transform-origin: center;
+      transform: scale(1.1);
+    }
+  }
+  ${mediaQueries("tabletS")`
+    display: block;
+    
+    
+  `};
+  ${mediaQueries("mobileM")`
+      bottom : 40rem
+  `};
+
+  ${(props) =>
+    props.isActive &&
+    !props.mailSend &&
+    css`
+      display: none !important;
+    `}
+`;
+
+const MailSendIcon = styled.svg`
+  display: ${(props) => (props.mailSend ? "block" : "none")};
+  position: absolute;
+  width: 30rem;
+  height: 10rem;
+  top: 36%;
+
+  ${mediaQueries("desktopS")`
+    width: 15rem;
+    top: 34%;
+    
+  `};
+
+  ${mediaQueries("mobileM")`
+      bottom : 40rem
+  `};
+`;
+
+const ContactContainer = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  will-change: transform;
+  position: relative;
+  min-height: 60rem;
+  width: 100%;
+  height: auto;
+`;
+
+const ContactImgContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 55rem;
+  & div {
+    width: 100%;
+    height: 100%;
+  }
+  ${mediaQueries("desktopS")`
+    width: 50rem
+    
+  `}
+  ${(props) =>
+    props.isActive &&
+    css`
+      display: none !important;
+    `}
+`;
+
+const ContactSectionContainer = styled.section`
+  background-color: black;
+  padding: 0rem 3rem 3rem;
+  overflow: visible;
+  width: 100%;
+  ${mediaQueries("aboutMediaS")`
+     padding: 0rem 2rem 1rem
+  `}
+  ${mediaQueries("mobileM")`
+     padding: 0rem 1rem 1rem
+  `}
+  ${mediaQueries("mobileM")`
+     padding: 0rem 1rem 1rem
+  `}
+  ${mediaQueries("mobileR")`
+     padding: 0rem .5rem 1rem
+  `}
+`;
 
 const ContactSection = () => {
   const { navigationValue } = useContext(NavigationContext);
@@ -26,7 +127,7 @@ const ContactSection = () => {
   return (
     <ContactSectionContainer id="contact">
       <ContactContainer
-        style={{ y: scrollAnimation || 0 }}
+        style={{ y: scrollAnimation || 1 }}
         transition={{ ease: "easeIn" }}
       >
         <ContactImgContainer isActive={isActive}>
@@ -89,106 +190,5 @@ const ContactSection = () => {
     </ContactSectionContainer>
   );
 };
-
-const MailSendIcon = styled.svg`
-  display: ${(props) => (props.mailSend ? "block" : "none")};
-  position: absolute;
-  width: 30rem;
-  height: 10rem;
-  top: 36%;
-
-  ${mediaQueries("desktopS")`
-    width: 15rem;
-    top: 34%;
-    
-  `};
-
-  ${mediaQueries("mobileM")`
-      bottom : 40rem
-  `};
-`;
-
-const MailIcon = styled.svg`
-  display: none;
-  position: absolute;
-  width: 10rem;
-  top: 33%;
-  transition: scale 0.1s ease;
-  overflow: visible;
-  cursor: pointer;
-  &:hover {
-    & #path1,
-    & #path2 {
-      stroke: ${theme.colors.yellow};
-      transform-origin: center;
-      transform: scale(1.1);
-    }
-  }
-  ${mediaQueries("tabletS")`
-    display: block;
-    
-    
-  `};
-  ${mediaQueries("mobileM")`
-      bottom : 40rem
-  `};
-
-  ${(props) =>
-    props.isActive &&
-    !props.mailSend &&
-    css`
-      display: none !important;
-    `}
-`;
-
-const ContactSectionContainer = styled.section`
-  background-color: black;
-  padding: 0rem 3rem 3rem;
-  overflow: visible;
-  width: 100%;
-  ${mediaQueries("aboutMediaS")`
-     padding: 0rem 2rem 1rem
-  `}
-  ${mediaQueries("mobileM")`
-     padding: 0rem 1rem 1rem
-  `}
-  ${mediaQueries("mobileM")`
-     padding: 0rem 1rem 1rem
-  `}
-  ${mediaQueries("mobileR")`
-     padding: 0rem .5rem 1rem
-  `}
-`;
-const ContactContainer = styled(motion.div)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  will-change: transform;
-  position: relative;
-  min-height: 60rem;
-  width: 100%;
-  height: auto;
-`;
-
-const ContactImgContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 55rem;
-  & div {
-    width: 100%;
-    height: 100%;
-  }
-  ${mediaQueries("desktopS")`
-    width: 50rem
-    
-  `}
-  ${(props) =>
-    props.isActive &&
-    css`
-      display: none !important;
-    `}
-`;
 
 export default ContactSection;
