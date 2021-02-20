@@ -1,9 +1,6 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
-import { mediaQueries } from "./mediaQueries.js";
-
-export const Heading2 = styled(motion.h2)`
+export const Heading2 = styled.h2`
   font-size: 5rem;
 `;
 
