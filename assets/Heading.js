@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Heading = () => {
   return (
-    <svg
+    <StyledHeadingComponent
       width="969"
       height="188"
       viewBox="0 0 969 188"
@@ -286,7 +286,7 @@ const Heading = () => {
           />
         </filter>
       </defs>
-    </svg>
+    </StyledHeadingComponent>
   );
 };
 
