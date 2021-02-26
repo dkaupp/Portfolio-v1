@@ -5,7 +5,7 @@ import Joi from "joi-browser";
 import { mediaQueries } from "../styles/mediaQueries.js";
 import useForm from "../hooks/useForm";
 import theme from "../styles/theme";
-import { sendContactMail } from "../api/mail";
+import { sendContactMail } from "../herpers/mail";
 
 const ButtonContainer = styled.div`
   display: flex;
