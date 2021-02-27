@@ -52,6 +52,13 @@ const PcStyledUl = styled(StyledUl)`
   `}
 `;
 
+const MenuStyledUl = styled(StyledUl)`
+  display: none;
+  ${mediaQueries("tabletL")`
+    display : block;
+  `}
+`;
+
 const BottomLine = styled.line`
   transform-origin: 33px 45px;
 
@@ -281,7 +288,7 @@ const NavBar = () => {
         </MenuButtonContainer>
       </StyledMenuButton>
       <SlidingMenu isActive={isActive}>
-        <StyledUl>
+        <MenuStyledUl>
           {links.map((link) => (
             <ListLink
               color="black"
@@ -291,7 +298,7 @@ const NavBar = () => {
               onIsActive={handleIsActive}
             />
           ))}
-        </StyledUl>
+        </MenuStyledUl>
       </SlidingMenu>
     </>
   );
