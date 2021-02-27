@@ -39,7 +39,7 @@ const ProjectContainer = styled.div`
   opacity: 0;
   will-change: transform;
   width: 100%;
-  transition: all 1s ease-out;
+  transition: all 1s ease-in-out;
   transform: ${(props) => props.animationValue && props.animationValue};
   ${(props) =>
     props.direction === "left" &&

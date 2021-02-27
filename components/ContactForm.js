@@ -219,8 +219,8 @@ const StyledSpan = styled.span``;
 
 const schema = {
   email: Joi.string().email().min(5).max(30).required().label("Email"),
-  name: Joi.string().label("Name"),
-  message: Joi.string().required().label("message"),
+  name: Joi.string().max(15).label("Name"),
+  message: Joi.string().required().max(200).label("message"),
 };
 
 const ContactForm = ({ isActive, setIsActive, setMailSend, mailSend }) => {

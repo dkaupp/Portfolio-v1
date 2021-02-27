@@ -23,7 +23,7 @@ const AboutContainer = styled.div`
           transform: translateY(0rem);
         `
       : css`
-          transition: all 1s ease-out;
+          transition: all 1s ease-in-out;
         `};
   ${(props) =>
     props.inView &&
