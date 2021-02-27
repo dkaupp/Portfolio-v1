@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-import { NavBar, MouseIcon, NavBarMobile } from "./";
+import { NavBar, MouseIcon } from "./";
 import { mediaQueries } from "../styles/mediaQueries.js";
 import Heading from "../assets/Heading";
 
 const HeadingContainer = styled.div`
   width: 100%;
   max-width: 100rem;
+  ${mediaQueries("desktopS")`
+     width: 90vw;
+  `}
 `;
 
 const HeroSectionContainer = styled.section`
@@ -57,7 +60,6 @@ const HeroSection = () => {
   return (
     <HeroSectionContainer>
       <NavBar />
-      <NavBarMobile />
       <Container>
         <HeadingContainer>
           <Heading />

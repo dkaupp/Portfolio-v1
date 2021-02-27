@@ -12,7 +12,7 @@ const StyledLi = styled.li`
   font-weight: 700;
   font-size: 1.8rem;
   list-style: none;
-  margin: 3rem 0rem 3rem 3rem;
+  margin: 3rem;
   text-transform: uppercase;
   transition: scale 0.1s ease;
   &:hover {

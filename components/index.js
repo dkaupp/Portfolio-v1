@@ -5,7 +5,6 @@ export { default as ContacForm } from "./ContactForm";
 export { default as Footer } from "./Footer";
 export { default as HeroSection } from "./HeroSection";
 export { default as MouseIcon } from "./MouseIcon";
-export { default as NavBarMobile } from "./NavBarMobile";
 export { default as ListLink } from "./ListLink";
 export { default as NavBar } from "./NavBar";
 export { default as Project } from "./Project.js";
