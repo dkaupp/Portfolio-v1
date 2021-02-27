@@ -38,12 +38,6 @@ const StyledUl = styled.ul`
       text-shadow: 0 0 10px ${theme.colors.yellow};
     }
   }
-  ${mediaQueries("tabletL")`
-    display: flex ;
-    flex-direction: column;
-    justify-content : center;
-    align-items: center;
-  `}
 `;
 
 const PcStyledUl = styled(StyledUl)`
@@ -55,7 +49,10 @@ const PcStyledUl = styled(StyledUl)`
 const MenuStyledUl = styled(StyledUl)`
   display: none;
   ${mediaQueries("tabletL")`
-    display : block;
+     display: flex ;
+    flex-direction: column;
+    justify-content : center;
+    align-items: center;
   `}
 `;
 
@@ -122,12 +119,17 @@ const SlidingMenu = styled.div`
   will-change: transform;
   transform: translateX(100%);
   transition: transform 0.3s linear;
+  display: none;
 
   ${(props) =>
     props.isActive &&
     css`
       transform: translateX(0);
     `}
+
+  ${mediaQueries("tabletL")`
+    display: block ;
+  `}
 `;
 
 const StyledCircle = styled.circle`
