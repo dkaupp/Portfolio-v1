@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import styled, { css } from "styled-components";
 
-import NavigationContext from "../context/navigation.js";
 import { mediaQueries } from "../styles/mediaQueries.js";
 import theme from "../styles/theme.js";
 
@@ -56,30 +55,6 @@ const MenuStyledUl = styled(StyledUl)`
   `}
 `;
 
-const BottomLine = styled.line`
-  transform-origin: 33px 45px;
-
-  transition: all 0.2s linear;
-
-  ${(props) =>
-    props.isActive &&
-    css`
-      transform: translateY(-11px) rotate(-45deg);
-      stroke: black;
-    `}
-`;
-
-const CenterLine = styled.line`
-  transition: all 0.2s linear;
-  transition-delay: 0.1s;
-  ${(props) =>
-    props.isActive &&
-    css`
-      transition-delay: 0s;
-      opacity: 0;
-    `}
-`;
-
 const LogoContainer = styled.div`
   width: 16rem;
   position: relative;
@@ -98,23 +73,13 @@ const LogoContainer = styled.div`
   `}
 `;
 
-const MenuButtonContainer = styled.svg`
-  width: 45px;
-  height: 45px;
-  overflow: visible;
-  display: none;
-  ${mediaQueries("tabletL")`
-    display: block ;
-  `}
-`;
-
 const SlidingMenu = styled.div`
   position: fixed;
   background-color: ${theme.colors.react};
-  height: 110%;
+  height: 110vh;
   min-height: 500px;
   width: 60%;
-  z-index: 3;
+  z-index: 4;
   right: 0;
   will-change: transform;
   transform: translateX(100%);
@@ -132,44 +97,16 @@ const SlidingMenu = styled.div`
   `}
 `;
 
-const StyledCircle = styled.circle`
-  ${(props) =>
-    props.isActive &&
-    css`
-      stroke: black;
-    `}
-`;
-
-const StyledMenuButton = styled.div`
-  margin-left: auto;
-  position: fixed;
-  right: 2rem;
-  z-index: 4;
-
-  transition: top 0.5s ease;
-  ${(props) =>
-    props.isVisible
-      ? css`
-          top: 1rem;
-        `
-      : css`
-          top: -6.5rem;
-        `}
-  ${mediaQueries("mobileM")`
-     right: 1rem;
-  `}
-`;
-
 const StyledNavBar = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 6.5rem;
+  height: 7rem;
   position: fixed;
   top: 0;
   background-color: black;
-  z-index: 3;
-  transition: all 0.5s ease-out;
+  z-index: 2;
+  transition: top 0.5s ease-out, opacity 0.3s ease-out;
   overflow: visible;
   ${(props) =>
     props.isVisible
@@ -185,16 +122,96 @@ const StyledNavBar = styled.div`
       opacity: 0;
     `}
 `;
-const TopLine = styled.line`
-  transform-origin: 33px 21px;
 
-  transition: all 0.2s linear;
+const MenuButtom = styled.button`
+  display: none;
+  cursor: pointer;
+  border: 2px solid white;
+  background-color: transparent;
+  height: 50px;
+  width: 50px;
+  position: fixed;
+  right: 2rem;
+  top: 1rem;
+  border-radius: 50%;
+  z-index: 2000;
+  transition: top 0.5s ease-out, border 0.2s;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  & i {
+    font-size: 3rem;
+  }
 
+  &:active,
+  &:focus {
+    outline: none;
+  }
   ${(props) =>
     props.isActive &&
     css`
-      transform: translateY(13px) rotate(45deg);
-      stroke: black;
+      border: 2px solid black;
+    `}
+  ${(props) =>
+    props.isVisible
+      ? css`
+          top: 1rem;
+        `
+      : css`
+          top: -6.5rem;
+        `}
+
+  ${mediaQueries("tabletL")`
+    display: block ;
+  `}
+  ${mediaQueries("mobileM")`
+    right: 1rem ;
+  `}
+`;
+
+const NavIcon = styled.span`
+  position: relative;
+  margin-top: 1.3rem;
+  &::before,
+  &::after,
+  & {
+    width: 3rem;
+    height: 2px;
+    background-color: white;
+    display: inline-block;
+  }
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all 0.2s;
+  }
+  &::before {
+    top: -0.8rem;
+  }
+  &::after {
+    top: 0.8rem;
+  }
+  ${(props) =>
+    props.isActive &&
+    css`
+      & {
+        background-color: transparent;
+      }
+      &::before {
+        transform: rotate(135deg);
+        top: 0;
+        background-color: black;
+      }
+      &::after {
+        transform: rotate(-135deg);
+        top: 0;
+        background-color: black;
+      }
+    `}
+
+  ${mediaQueries("mobile")`
+            margin-top: 2rem;
     `}
 `;
 
@@ -206,8 +223,6 @@ const links = [
 ];
 
 const NavBar = () => {
-  const { handleNavigation } = useContext(NavigationContext);
-
   const { visible: isVisible } = useScroll();
   const [isActive, setIsActive] = useState(false);
 
@@ -231,64 +246,13 @@ const NavBar = () => {
           ))}
         </PcStyledUl>
       </StyledNavBar>
-      <StyledMenuButton
+      <MenuButtom
         onClick={() => setIsActive(!isActive)}
         isVisible={isActive ? true : isVisible}
+        isActive={isActive}
       >
-        <MenuButtonContainer
-          width="66"
-          height="66"
-          viewBox="0 0 66 66"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g id="menu">
-            <StyledCircle
-              isActive={isActive}
-              id="Ellipse 80"
-              cx="33"
-              cy="33"
-              r="32"
-              stroke="white"
-              strokeWidth="3"
-            />
-            <TopLine
-              id="line3"
-              x1="15"
-              y1="21"
-              x2="51"
-              y2="21"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              isActive={isActive}
-            />
-            <CenterLine
-              id="line2"
-              x1="15"
-              y1="33"
-              x2="51"
-              y2="33"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              isActive={isActive}
-            />
-            <BottomLine
-              id="line1"
-              x1="15"
-              y1="45"
-              x2="51"
-              y2="45"
-              stroke="white"
-              strokeWidth="3"
-              strokeLinecap="round"
-              isActive={isActive}
-            />
-          </g>
-        </MenuButtonContainer>
-      </StyledMenuButton>
+        <NavIcon isActive={isActive}>&nbsp;</NavIcon>
+      </MenuButtom>
       <SlidingMenu isActive={isActive}>
         <MenuStyledUl>
           {links.map((link) => (
