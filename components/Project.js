@@ -19,8 +19,8 @@ const Project = ({ source, altText }) => {
       <Image
         src={source}
         alt={altText}
-        width={1600}
-        height={1240}
+        width={1536}
+        height={1191}
         layout="responsive"
       />
     </ProjectImageContainer>

@@ -8,9 +8,13 @@ import Heading from "../assets/Heading";
 const HeadingContainer = styled.div`
   width: 100%;
   max-width: 100rem;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   ${mediaQueries("desktopS")`
      width: 90vw;
-  `}
+  `};
 `;
 
 const HeroSectionContainer = styled.section`
