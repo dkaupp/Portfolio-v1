@@ -62,7 +62,7 @@ const Footer = () => {
         >
           <g id="footer-icons">
             <g id="Group 124">
-              <Link href="mailto:dieterkaupp@hotmail.com">
+              <Link href="mailto:dkaupp@dkaupp.com">
                 <MailIcon fill="transparent">
                   <g id="mail-icon-footer">
                     <g id="mail-icon">
